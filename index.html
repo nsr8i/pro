@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PREKSHA LIGHTING WORLD | LED Lights</title>
+  <meta name="description" content="PREKSHA LIGHTING WORLD - Premium LED lighting solutions for homes, offices, shops and industries.">
+  <meta property="og:title" content="PREKSHA LIGHTING WORLD | LED Lights">
+  <meta property="og:description" content="PREKSHA LIGHTING WORLD - Premium LED lighting solutions for homes, offices, shops and industries.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Comfortaa:wght@700&family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       MAIN FLOATING HEADER (HOMEPAGE)
+       ========================================================= -->
+  <header id="mainHeader" class="floating-header">
+    <a href="#home" class="header-logo" aria-label="Company Home">
+      <img id="mainHeaderLogo" src="images/preksha-lite-logo.svg" alt="Company Logo" onerror="this.onerror=null; this.src='images/preksha-lite-logo.png';">
+    </a>
+
+    <!-- Main Navigation (Desktop) -->
+    <nav class="nav-links" aria-label="Main Navigation">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About Us</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Quick Links Hamburger Control -->
+    <div class="header-actions">
+      <button id="mainHamburger" class="hamburger-btn" type="button" aria-label="Open Quick Links Menu" aria-expanded="false">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+
+      <!-- Quick Links Dropdown -->
+      <ul id="mainQuickLinksDropdown" class="quick-links-dropdown">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO SECTION (LUMINOUS FULL HERO PHOTO SHOWCASE - NO BLACK BACKGROUND)
+       ========================================================= -->
+  <section id="home" class="hero">
+    <!-- Full-Bleed Hero Section Photo Backdrop -->
+    <div class="hero-photo-backdrop" id="heroPhotoBackdrop">
+      <img id="heroBackdropImage" class="hero-backdrop-img" src="images/opera gate light.jpeg" alt="Hero Featured Luminaire" loading="eager">
+      <div class="hero-light-overlay"></div>
+    </div>
+
+    <!-- Hero Content Layout (Full Background Photo Showcase) -->
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-heading" id="heroHeading">Light Your Space With <span>Style</span></h1>
+        
+        <p class="hero-description" id="heroDescription">
+          Premium decorative and architectural lighting solutions for homes, shops, offices and modern spaces.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary" id="heroPrimaryBtn">Explore Products</a>
+          <a href="#contact" class="btn btn-secondary" id="heroSecondaryBtn">Contact Us</a>
+        </div>
+
+        <!-- Luminaire Category Switcher (Dots) -->
+        <div class="hero-controls-row">
+          <div id="heroDots" class="hero-dots"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PRODUCTS SECTION (HOMEPAGE)
+       ========================================================= -->
+  <section id="products" class="section">
+    <div class="section-header">
+      <p class="section-tag">ARCHITECTURAL COLLECTIONS</p>
+      <h2 class="section-title">Explore By Category</h2>
+      <p class="section-subtitle">Select any category to explore exclusive curated luminaires and luxury lighting designs.</p>
+    </div>
+
+    <!-- Dynamic Category Cards Grid (4 Col Desktop, 3 Tablet, 2 Mobile) -->
+    <div id="homepageCategoryGrid" class="category-cards-grid"></div>
+
+    <!-- Featured Products Showcase -->
+    <div class="section-header" style="margin-top: 80px;">
+      <p class="section-tag">CURATED SHOWCASE</p>
+      <h2 class="section-title">Signature Products</h2>
+      <p class="section-subtitle">Engineered for timeless brilliance, energy efficiency, and modern sophistication.</p>
+    </div>
+
+    <!-- Dynamic Product Cards Grid (4 Col Desktop, 3 Tablet, 2 Mobile) -->
+    <div id="homepageProductGrid" class="products-grid"></div>
+  </section>
+
+  <!-- =========================================================
+       ABOUT US SECTION
+       ========================================================= -->
+  <section id="about" class="section about-section">
+    <div class="about-grid">
+      <div class="about-visual" id="aboutVisual">
+        <img id="aboutImage" src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80" alt="Showcase Ambience" loading="lazy">
+        <video id="aboutVideo" class="about-video" playsinline autoplay muted loop controls style="display:none;"></video>
+        <div class="about-visual-overlay">
+          <span class="about-badge" id="aboutBadge">Luxury Lighting World</span>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <p class="section-tag" id="aboutSectionTag">ABOUT PREKSHA</p>
+        <h2 class="about-heading" id="aboutHeading">Lighting That Makes A Difference</h2>
+        <p class="about-description" id="aboutDescription">
+          PREKSHA LIGHTING WORLD provides premium lighting solutions designed to bring beauty, functionality and character to every space.
+        </p>
+        
+        <div class="about-features">
+          <div class="about-feature-item">
+            <span class="about-feature-bullet"></span>
+            <div>
+              <h3 class="about-feature-title" id="aboutFeat1Title">Architectural Craft</h3>
+              <p class="about-feature-text" id="aboutFeat1Text">Precision optical diffusers and premium metal finishes.</p>
+            </div>
+          </div>
+          <div class="about-feature-item">
+            <span class="about-feature-bullet"></span>
+            <div>
+              <h3 class="about-feature-title" id="aboutFeat2Title">Ultra Efficiency</h3>
+              <p class="about-feature-text" id="aboutFeat2Text">High-lumen Grade-A LED chips with long lifespan.</p>
+            </div>
+          </div>
+          <div class="about-feature-item">
+            <span class="about-feature-bullet"></span>
+            <div>
+              <h3 class="about-feature-title" id="aboutFeat3Title">Custom Lighting</h3>
+              <p class="about-feature-text" id="aboutFeat3Text">Bespoke lighting consultations for villas and retail.</p>
+            </div>
+          </div>
+          <div class="about-feature-item">
+            <span class="about-feature-bullet"></span>
+            <div>
+              <h3 class="about-feature-title" id="aboutFeat4Title">Pan-India Reach</h3>
+              <p class="about-feature-text" id="aboutFeat4Text">Fast, insured delivery with personalized support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHY US SECTION (4 CARDS)
+       ========================================================= -->
+  <section id="why-us" class="section">
+    <div class="section-header">
+      <p class="section-tag" id="whyUsTag">THE PREKSHA PROMISE</p>
+      <h2 class="section-title" id="whyUsTitle">Why Choose Us</h2>
+      <p class="section-subtitle" id="whyUsSubtitle">Dedicated to transforming spaces with uncompromised quality and architectural lighting brilliance.</p>
+    </div>
+
+    <div class="why-us-grid">
+      <!-- Card 1 -->
+      <div class="why-card">
+        <div class="why-icon-box">★</div>
+        <h3 class="why-card-title" id="whyCard1Title">Premium Quality</h3>
+        <p class="why-card-desc" id="whyCard1Desc">Finest grade materials, weather-resistant coatings, and high-efficiency LED drivers engineered for excellence.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="why-card">
+        <div class="why-icon-box">✦</div>
+        <h3 class="why-card-title" id="whyCard2Title">Wide Collection</h3>
+        <p class="why-card-desc" id="whyCard2Desc">From grand royal chandeliers and ambient pendants to gate lights, elevation fixtures, and seamless COB profiles.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="why-card">
+        <div class="why-icon-box">✔</div>
+        <h3 class="why-card-title" id="whyCard3Title">Reliable Service</h3>
+        <p class="why-card-desc" id="whyCard3Desc">Expert consultations, reliable order dispatch, responsive support, and transparent communication every step.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="why-card">
+        <div class="why-icon-box">◈</div>
+        <h3 class="why-card-title" id="whyCard4Title">Modern Designs</h3>
+        <p class="why-card-desc" id="whyCard4Desc">Curated contemporary designs that harmoniously accentuate modern residences, boutique cafes, and commercial spaces.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       DARK CTA SECTION
+       ========================================================= -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="cta-content">
+      <h2 class="cta-title" id="ctaTitle">Looking For The <span>Right Light</span>?</h2>
+      <p class="cta-text" id="ctaText">Contact us for product details and enquiries.</p>
+      <a href="#contact" class="btn btn-primary" id="ctaBtn">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTACT SECTION
+       ========================================================= -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <p class="section-tag" id="contactSectionTag">CONNECT WITH US</p>
+      <h2 class="section-title" id="contactTitle">Get In Touch</h2>
+      <p class="section-subtitle" id="contactSubtitle">Have a query or need product assistance? Connect with our lighting specialists directly.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Contact Info Cards -->
+      <div class="contact-info-cards">
+        <div class="contact-card">
+          <div class="contact-icon">✆</div>
+          <div>
+            <p class="contact-card-label">Direct Phone / WhatsApp</p>
+            <p class="contact-card-val" id="contactPhoneVal">+91 70101 14070</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">✉</div>
+          <div>
+            <p class="contact-card-label">Email Address</p>
+            <p class="contact-card-val" id="contactEmailVal">nsr8i@outlook.com</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">⚲</div>
+          <div>
+            <p class="contact-card-label">Headquarters</p>
+            <p class="contact-card-val" id="contactAddressVal">Chennai, India</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-container">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" id="name" class="form-input" placeholder="e.g. Rajesh Kumar" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" class="form-input" placeholder="e.g. +91 98765 43210" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Lighting Requirement / Message</label>
+            <textarea id="message" class="form-textarea" placeholder="Describe the lights you are looking for..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit-btn">
+            Send Enquiry via WhatsApp <span>→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MAIN FOOTER (CREAM BACKGROUND)
+       ========================================================= -->
+  <footer id="mainFooter" class="main-footer">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <img id="footerLogo" src="images/preksha-lite-logo.svg" alt="PREKSHA LIGHTING WORLD" onerror="this.onerror=null; this.src='images/preksha-lite-logo.png';">
+      </div>
+
+      <!-- 3 Statistic Boxes -->
+      <div class="footer-stats-grid">
+        <div class="footer-stat-box">
+          <div id="footerProductCount" class="stat-number">24+</div>
+          <div class="stat-label">Products Available</div>
+        </div>
+
+        <div class="footer-stat-box">
+          <div id="footerCustomerCount" class="stat-number">500+</div>
+          <div class="stat-label">Customers Visited</div>
+        </div>
+
+        <div class="footer-stat-box">
+          <div id="footerCityCount" class="stat-number">10+</div>
+          <div class="stat-label">Cities Available</div>
+        </div>
+      </div>
+
+      <!-- Rotating City Display -->
+      <div class="rotating-city-wrapper">
+        <span class="rotating-city-prefix">Serving Customers Across</span>
+        <span id="rotatingCityMain" class="rotating-city-name">Chennai</span>
+      </div>
+
+      <!-- Footer Quick Navigation -->
+      <ul class="footer-links-row">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <p id="footerCopyright" class="footer-copyright">
+        &copy; 2026 PREKSHA LIGHTING WORLD. All Rights Reserved. Premium LED lighting solutions.
+      </p>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       FLOATING WHATSAPP BUTTON (HOMEPAGE)
+       ========================================================= -->
+  <a id="floatingWhatsapp" href="https://wa.me/917010114070?text=Hello%20PREKSHA%20LIGHTING%20WORLD%2C%20I%20would%20like%20to%20enquire%20about%20your%20lighting%20products." target="_blank" rel="noopener noreferrer" aria-label="Chat with PREKSHA LIGHTING on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.84a8.18 8.18 0 0 1-5.82 2.41c-1.5 0-2.96-.39-4.25-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.25-4.4c0-4.54 3.7-8.24 8.24-8.24m4.52 11.64c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.32"/></svg>
+  </a>
+
+  <!-- =========================================================
+       CRITICAL: SEPARATE CATEGORY VIEW / PAGE
+       ========================================================= -->
+  <div id="collectionPage">
+    <!-- Category Floating Header -->
+    <header id="categoryHeader" class="floating-header">
+      <a href="#home" class="header-logo" aria-label="Company Home">
+        <img id="categoryHeaderLogo" src="images/preksha-lite-logo.svg" alt="Company Logo" onerror="this.onerror=null; this.src='images/preksha-lite-logo.png';">
+      </a>
+
+      <!-- Right Action Items -->
+      <div class="header-actions">
+        <button id="categoryHomeBtn" class="home-nav-btn" type="button">
+          <span>⌂</span> Home
+        </button>
+
+        <button id="categoryHamburger" class="hamburger-btn" type="button" aria-label="Open Quick Links Menu" aria-expanded="false">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
+
+        <!-- Category Page Quick Links Dropdown -->
+        <ul id="categoryQuickLinksDropdown" class="quick-links-dropdown">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Category Page Content -->
+    <div class="category-hero-banner">
+      <p class="category-page-brand">PREKSHA LIGHTING WORLD</p>
+      <h1 id="selectedCategoryTitle" class="category-page-title">Category Name</h1>
+      <p id="selectedCategoryDescription" class="category-page-description">Category description loading...</p>
+      
+      <div class="category-banner-actions">
+        <button id="categoryBackBtn" class="category-back-btn" type="button">
+          ← Back To Products
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Toolbar (Product Count & Status) -->
+    <div class="category-toolbar-wrap">
+      <div class="category-toolbar">
+        <div class="category-toolbar-left">
+          <span class="category-count-pill" id="categoryProductCountPill">Loading products...</span>
+          <span class="category-status-indicator">● Curated Collection</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Product Grid (4 Col Desktop, 3 Tablet, 2 Mobile) -->
+    <div class="category-products-container">
+      <div id="categoryProductGrid" class="products-grid"></div>
+    </div>
+
+    <!-- Category Page Specific Footer -->
+    <footer class="category-footer">
+      <div class="category-footer-inner">
+        <img id="categoryFooterLogo" src="images/preksha-lite-logo.svg" alt="PREKSHA LIGHTING WORLD" onerror="this.onerror=null; this.src='images/preksha-lite-logo.png';">
+        <p class="category-footer-desc">
+          PREKSHA LIGHTING WORLD provides premium lighting solutions designed to bring beauty, functionality and character to every space.
+        </p>
+        <div class="rotating-city-wrapper">
+          <span class="rotating-city-prefix">Serving Customers Across</span>
+          <span id="rotatingCityCategory" class="rotating-city-name">Chennai</span>
+        </div>
+        <p class="footer-copyright">
+          &copy; 2026 PREKSHA LIGHTING WORLD. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- =========================================================
+       PRODUCT IMAGE VIEWER MODAL
+       ========================================================= -->
+  <div id="productModal" class="product-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button id="modalCloseBtn" class="modal-close-btn" type="button" aria-label="Close Product Viewer">✕</button>
+      
+      <div class="modal-image-col">
+        <button id="modalPrevBtn" class="modal-nav-btn modal-prev" type="button" aria-label="Previous Product">‹</button>
+        <img id="modalProductImage" src="" alt="Product Image">
+        <button id="modalNextBtn" class="modal-nav-btn modal-next" type="button" aria-label="Next Product">›</button>
+      </div>
+
+      <div class="modal-details-col">
+        <span id="modalProductCategory" class="modal-category-tag">PREKSHA LIGHTING</span>
+        <h3 id="modalProductTitle" class="modal-product-title">Product Name</h3>
+        <div id="modalProductPrice" class="modal-product-price">₹ 0</div>
+        <p id="modalProductDescription" class="modal-product-desc">Product description goes here.</p>
+        <a id="modalWhatsappBtn" class="modal-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer">
+          Enquire on WhatsApp →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supabase CDN Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Application Script -->
+  <script src="script.js"></script>
+</body>
+</html>
