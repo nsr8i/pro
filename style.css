@@ -44,9 +44,15 @@
 }
 
 html {
-  scroll-behavior: smooth;
   font-size: 16px;
   background-color: var(--color-cream);
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (min-width: 769px) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -57,6 +63,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 /* Typography Defaults */
@@ -353,14 +361,14 @@ img {
   }
   .hero-backdrop-img {
     object-position: center;
-    opacity: 0.38;
+    opacity: 0.78;
   }
   .hero-light-overlay {
     background: linear-gradient(
       180deg,
-      rgba(253, 251, 247, 0.94) 0%,
-      rgba(253, 251, 247, 0.88) 60%,
-      rgba(253, 251, 247, 0.72) 100%
+      rgba(253, 251, 247, 0.88) 0%,
+      rgba(253, 251, 247, 0.76) 55%,
+      rgba(253, 251, 247, 0.52) 100%
     );
   }
 }
@@ -610,6 +618,203 @@ img {
 }
 
 /* =========================================================
+   CURATED SHOWCASE / SIGNATURE PRODUCTS SLIDER (SINGLE LINE)
+   ========================================================= */
+.showcase-header {
+  position: relative;
+  margin-bottom: 24px !important;
+}
+
+.showcase-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.showcase-badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(214, 170, 69, 0.12);
+  border: 1px solid rgba(214, 170, 69, 0.35);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brown);
+}
+
+.status-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  box-shadow: 0 0 0 0 rgba(224, 90, 0, 0.7);
+  animation: pulseGoldDot 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pulseGoldDot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(224, 90, 0, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(224, 90, 0, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(224, 90, 0, 0);
+  }
+}
+
+.showcase-nav-btns {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.showcase-ctrl-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gray-border);
+  background: var(--color-white);
+  color: var(--color-black);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  padding: 0;
+}
+
+.showcase-ctrl-btn:hover {
+  background: var(--color-black);
+  color: var(--color-gold-light);
+  border-color: var(--color-black);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.showcase-ctrl-btn:active {
+  transform: translateY(0);
+}
+
+.showcase-slider-outer {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 10px 0 24px 0;
+  overflow: hidden;
+}
+
+/* Subtle edge fade masks on desktop */
+@media (min-width: 900px) {
+  .showcase-slider-outer::before,
+  .showcase-slider-outer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .showcase-slider-outer::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-cream) 20%, rgba(253, 251, 247, 0));
+  }
+  .showcase-slider-outer::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-cream) 20%, rgba(253, 251, 247, 0));
+  }
+}
+
+.showcase-slider-viewport {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+  padding: 8px 24px 18px 24px;
+}
+
+.showcase-slider-viewport::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* The single line continuous sliding track */
+.showcase-slider-track {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 22px;
+  width: max-content;
+}
+
+#homepageProductGrid.showcase-slider-track {
+  display: flex !important;
+  grid-template-columns: none !important;
+}
+
+/* Fixed width cards in the sliding single line */
+.showcase-slider-track .product-card {
+  flex: 0 0 290px !important;
+  width: 290px !important;
+  min-width: 290px !important;
+  max-width: 290px !important;
+  margin-bottom: 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .showcase-slider-track .product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-gold);
+    box-shadow: 0 10px 24px rgba(214, 170, 69, 0.22);
+  }
+}
+
+@media (max-width: 768px) {
+  .showcase-slider-outer {
+    padding: 6px 0 16px 0;
+  }
+  .showcase-slider-viewport {
+    padding: 6px 16px 12px 16px;
+  }
+  .showcase-slider-track {
+    gap: 14px;
+  }
+  .showcase-slider-track .product-card {
+    flex: 0 0 240px !important;
+    width: 240px !important;
+    min-width: 240px !important;
+    max-width: 240px !important;
+    padding: 12px;
+  }
+  .showcase-ctrl-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* =========================================================
    PRODUCTS & CATEGORIES GRID
    ========================================================= */
 .category-cards-grid,
@@ -635,10 +840,12 @@ img {
   overflow: hidden;
 }
 
-.category-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-gold);
-  box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+  .category-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 .category-image-wrap {
@@ -662,8 +869,10 @@ img {
   transition: transform 0.4s ease;
 }
 
-.category-card:hover .category-image-wrap img {
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .category-card:hover .category-image-wrap img {
+    transform: scale(1.05);
+  }
 }
 
 .category-card-name {
@@ -707,10 +916,12 @@ img {
   position: relative;
 }
 
-.product-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-gold);
-  box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 .product-image-box {
@@ -1510,12 +1721,14 @@ body.collection-open #floatingWhatsapp {
   padding: 20px;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity 0.3s ease, visibility 0.3s;
 }
 
 .product-modal.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .modal-content {
@@ -1730,11 +1943,20 @@ body.collection-open #floatingWhatsapp {
 
 /* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable heavy GPU-taxing backdrop filters on mobile for silky 60fps scrolling */
   .floating-header {
     top: 12px;
     width: calc(100% - 24px);
     padding: 0 16px;
     height: 58px;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    transition: box-shadow 0.2s ease !important;
   }
 
   .header-logo img {
@@ -1743,6 +1965,11 @@ body.collection-open #floatingWhatsapp {
 
   .hero {
     padding: 85px 16px 40px;
+  }
+
+  .hero-backdrop-img {
+    filter: none !important;
+    transition: opacity 0.3s ease !important;
   }
 
   .hero-container {
@@ -1787,6 +2014,9 @@ body.collection-open #floatingWhatsapp {
   .category-card,
   .product-card {
     padding: 12px;
+    content-visibility: auto;
+    contain-intrinsic-size: 260px;
+    contain: layout paint;
   }
 
   .category-image-wrap,
@@ -1815,6 +2045,25 @@ body.collection-open #floatingWhatsapp {
     width: 32px;
     height: 32px;
     font-size: 0.95rem;
+  }
+
+  /* Disable expensive backdrop blurs on mobile modals and banners */
+  .pwa-install-banner {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: #141720 !important;
+  }
+
+  .product-modal {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .pwa-ios-modal {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.9) !important;
   }
 
   /* Why Choose Us - Exactly 2 Blocks in Mobile View */
@@ -2609,4 +2858,298 @@ body.collection-open #floatingWhatsapp {
   font-weight: 600;
   color: #16a34a;
 }
+
+/* =========================================================
+   PWA INSTALL & OFFLINE STYLES
+   ========================================================= */
+
+.header-install-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #e56712, #db5200);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 14px rgba(219, 82, 0, 0.3);
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.header-install-btn:hover {
+  background: linear-gradient(135deg, #f57c00, #e56712);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(219, 82, 0, 0.4);
+}
+
+.header-install-btn .install-icon {
+  font-size: 1rem;
+}
+
+.btn-app-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+  padding: 14px 24px;
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+}
+
+.btn-app-download:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #ffffff;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Floating PWA Install Bottom Banner (mobile & desktop) */
+.pwa-install-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 480px;
+  background: rgba(18, 21, 28, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(219, 82, 0, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  z-index: 1050;
+  padding: 12px 16px;
+  animation: slideUpPwa 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpPwa {
+  from { opacity: 0; transform: translate(-50%, 40px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.pwa-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pwa-banner-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pwa-banner-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.pwa-banner-text h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pwa-banner-text p {
+  font-size: 0.76rem;
+  color: #a0aec0;
+  line-height: 1.3;
+}
+
+.pwa-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pwa-btn-install {
+  background: var(--color-orange);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.pwa-btn-install:hover {
+  background: var(--color-orange-hover);
+}
+
+.pwa-btn-dismiss {
+  color: #a0aec0;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: color 0.2s;
+}
+
+.pwa-btn-dismiss:hover {
+  color: #ffffff;
+}
+
+/* iOS Safari Installation Guide Modal */
+.pwa-ios-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.pwa-ios-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.pwa-ios-modal-content {
+  background: #12151c;
+  border: 1px solid rgba(219, 82, 0, 0.35);
+  border-radius: 20px;
+  max-width: 420px;
+  width: 100%;
+  padding: 28px 24px;
+  color: #ffffff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  position: relative;
+}
+
+.pwa-ios-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.pwa-ios-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  margin: 0 auto 16px;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pwa-ios-steps {
+  text-align: left;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #191e27;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pwa-ios-step {
+  display: flex;
+  gap: 12px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #d1d5db;
+}
+
+.pwa-ios-step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.pwa-ios-step strong {
+  color: #ff9955;
+}
+
+/* Offline Indicator Banner */
+.offline-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #b45309;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  z-index: 1100;
+  transition: opacity 0.3s;
+}
+
+.offline-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fde047;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(253, 224, 71, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(253, 224, 71, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(253, 224, 71, 0); }
+}
+
+@media (max-width: 768px) {
+  .header-install-btn .install-text {
+    display: none;
+  }
+  .header-install-btn {
+    padding: 7px 10px;
+  }
+}
+
 

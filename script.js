@@ -10,6 +10,31 @@ const SUPABASE_URL = "https://pomjpixlffoibewaflfv.supabase.co";
 const SUPABASE_KEY = "sb_publishable_b0k7bSRUXUT2v60PTwh5PA_dXh51-Uh";
 const WHATSAPP_NUMBER = "917010114070";
 
+// Embedded High-Resolution Vector Brand Logo Fallback
+const PREKSHA_LOGO_FALLBACK = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDYwIDI4NiIgd2lkdGg9IjEwNjAiIGhlaWdodD0iMjg2Ij4KICA8ZGVmcz4KICAgIDxmaWx0ZXIgaWQ9InN1YnRsZS1jcmlzcC1zaGFkb3ciIHg9Ii01JSIgeT0iLTUlIiB3aWR0aD0iMTEwJSIgaGVpZ2h0PSIxMTAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjEuNSIgc3RkRGV2aWF0aW9uPSIxLjUiIGZsb29kLWNvbG9yPSIjMDAwMDAwIiBmbG9vZC1vcGFjaXR5PSIwLjA4Ii8+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CgogIDxnIGlkPSJwcmVrc2hhLWxpdGUtYnJhbmQtbG9nbyIgZmlsdGVyPSJ1cmwoI3N1YnRsZS1jcmlzcC1zaGFkb3cpIj4KICAgIDwhLS0gU3R5bGl6ZWQgTW9ub2dyYW0gUCBBcnJvd2hlYWQgLS0+CiAgICA8cGF0aCBmaWxsPSIjZGI1MjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0gMjgsMTQKICBMIDE4OCwxMTAKICBMIDEyNiwxMTIKICBMIDEwMCw4OAogIEMgOTQsMTQyIDc4LDIxMCA0NCwyNzAKICBDIDQwLDI3NiAzMiwyNzQgMzAsMjY4CiAgQyAyMiwxODUgMjQsOTAgMjgsMTQKICBaCiAgTSA2NCw2MgogIEwgMTYwLDEwMAogIEwgODYsMTAwCiAgWiIvPgoKICAgIDwhLS0gcmVrc2hhIHRleHQgaW4gcHVyZSB2ZWN0b3IgcGF0aCAtLT4KICAgIDxwYXRoIGZpbGw9IiNkYjUyMDAiIGQ9Ik0xOTcuMTQgMjM3Ljg1UTE5NS40NiAyMzcuODUgMTk0LjQ1IDIzNy4zNFExOTMuNDQgMjM2Ljg0IDE5My4wMiAyMzUuNjZRMTkyLjYwIDIzNC40OSAxOTIuNjAgMjMyLjY0TDE5Mi42MCAxNjIuNThRMTkyLjYwIDE2MC41NyAxOTMuMDIgMTU5LjQ4UTE5My40NCAxNTguMzggMTk0LjQ1IDE1OC4wNVExOTUuNDYgMTU3LjcxIDE5Ny4zMCAxNTcuNzFRMTk4Ljk4IDE1Ny43MSAyMDAuMDggMTU4LjA1UTIwMS4xNyAxNTguMzggMjAxLjY3IDE1OS40OFEyMDIuMTggMTYwLjU3IDIwMi4xOCAxNjIuNThMMjAyLjE4IDE2OS42NFEyMDMuODYgMTY2Ljc4IDIwNS41NCAxNjQuNDNRMjA3LjIyIDE2Mi4wOCAyMDkuNTcgMTYwLjMyUTIxMS45MiAxNTguNTUgMjE1LjM2IDE1Ny41NFEyMTguODEgMTU2LjU0IDIyNC4wMiAxNTYuNTRRMjI2LjcwIDE1Ni41NCAyMjguOTcgMTU3LjA0UTIzMS4yNCAxNTcuNTQgMjMzLjE3IDE1OC4zOFEyMzUuMTAgMTU5LjIyIDIzNi40NSAxNjAuMjNRMjM3Ljc5IDE2MS4yNCAyMzguNDYgMTYyLjI1UTIzOS4xNCAxNjMuMjYgMjM5LjE0IDE2NC4yNlEyMzkuMTQgMTY2LjQ1IDIzNy4yOSAxNjcuOTZRMjM1LjQ0IDE2OS40NyAyMzMuOTMgMTY5LjQ3UTIzMi4wOCAxNjkuNDcgMjMxLjE2IDE2OC44OFEyMzAuMjMgMTY4LjMwIDIyOS4yMiAxNjcuNDZRMjI4LjIyIDE2Ni42MiAyMjYuMjAgMTY2LjAzUTIyNC4xOCAxNjUuNDQgMjE5Ljk4IDE2NS40NFEyMTcuNDYgMTY1LjQ0IDIxNC40NCAxNjYuNTNRMjExLjQyIDE2Ny42MiAyMDguNjQgMTY5LjgxUTIwNS44NyAxNzEuOTkgMjA0LjAyIDE3NS41MlEyMDIuMTggMTc5LjA1IDIwMi4xOCAxODMuOTJMMjAyLjE4IDIzMi45OFEyMDIuMTggMjM0LjgyIDIwMS43NiAyMzUuOTJRMjAxLjM0IDIzNy4wMSAyMDAuMjQgMjM3LjQzUTE5OS4xNSAyMzcuODUgMTk3LjE0IDIzNy44NU0yOTUuNzUgMjM4LjE4UTI4Ni41MSAyMzguMTggMjc4Ljg3IDIzNS4xNlEyNzEuMjIgMjMyLjE0IDI2NS43NiAyMjYuNTlRMjYwLjMwIDIyMS4wNSAyNTcuMjggMjEzLjQ5UTI1NC4yNiAyMDUuOTMgMjU0LjI2IDE5Ni42OVEyNTQuMjYgMTg1Ljc3IDI1OS40NiAxNzcuMDNRMjY0LjY3IDE2OC4zMCAyNzMuOTEgMTYzLjE3UTI4My4xNSAxNTguMDUgMjk1LjA4IDE1OC4wNVEzMDIuODEgMTU4LjA1IDMwOS4xOSAxNjAuNDBRMzE1LjU4IDE2Mi43NSAzMjAuMjggMTY2Ljc4UTMyNC45OCAxNzAuODIgMzI3LjU5IDE3Ni4wMlEzMzAuMTkgMTgxLjIzIDMzMC4xOSAxODYuNzhRMzMwLjE5IDE5NS4wMSAzMjYuNDEgMTk3Ljk1UTMyMi42MyAyMDAuODkgMzE3LjI2IDIwMC44OUwyNjQuMzQgMjAwLjg5UTI2NCAyMDkuNzkgMjY4Ljc5IDIxNi4xOFEyNzMuNTggMjIyLjU2IDI4MC44OCAyMjZRMjg4LjE5IDIyOS40NSAyOTUuNTggMjI5LjQ1UTMwMC40NiAyMjkuNDUgMzA0LjA3IDIyOC45NFEzMDcuNjggMjI4LjQ0IDMxMC4yOCAyMjcuNTJRMzEyLjg5IDIyNi41OSAzMTQuNzQgMjI1LjY3UTMxNi41OCAyMjQuNzQgMzE4LjEwIDIyMy44MlEzMTkuNjEgMjIyLjkwIDMyMC45NSAyMjIuMzlRMzIxLjc5IDIyMi4wNiAzMjIuODggMjIyLjE0UTMyMy45OCAyMjIuMjIgMzI0LjQ4IDIyMy4wNlEzMjUuMzIgMjI0LjI0IDMyNS42NiAyMjUuMTZRMzI1Ljk5IDIyNi4wOSAzMjUuOTkgMjI3LjI2UTMyNS45OSAyMjguNzggMzIxLjk2IDIzMS4zOFEzMTcuOTMgMjMzLjk4IDMxMS4wNCAyMzYuMDhRMzA0LjE1IDIzOC4xOCAyOTUuNzUgMjM4LjE4TTI2NC4zNCAxOTIuODJMMzE0LjQwIDE5Mi44MlEzMTcuNzYgMTkyLjgyIDMxOS42MSAxOTIuMDdRMzIxLjQ2IDE5MS4zMSAzMjEuNDYgMTg3LjExUTMyMS40NiAxODEuNTcgMzE4LjAxIDE3Ni45NVEzMTQuNTcgMTcyLjMzIDMwOC42OSAxNjkuNDdRMzAyLjgxIDE2Ni42MiAyOTUuMjUgMTY2LjYyUTI4Ni44NSAxNjYuNjIgMjc5LjcxIDE2OS45OFEyNzIuNTcgMTczLjM0IDI2OC4zNyAxNzkuMzBRMjY0LjE3IDE4NS4yNiAyNjQuMzQgMTkyLjgyTTM2Ni42NSAxOTUuODVMNDA5LjE1IDIyOS40NVE0MTEuNTAgMjMxLjEzIDQxMS42NyAyMzIuNTZRNDExLjg0IDIzMy45OCA0MTAuMzMgMjM2LjE3UTQwOS4xNSAyMzcuNjggNDA4LjA2IDIzOC4yN1E0MDYuOTcgMjM4Ljg2IDQwNS43OSAyMzguNTJRNDA0LjYyIDIzOC4xOCA0MDMuMTAgMjM3LjAxTDM1OS40MiAyMDIuMjNMMzU5LjQyIDIzMi44MVEzNTkuNDIgMjM0LjY2IDM1OC45MiAyMzUuNzVRMzU4LjQyIDIzNi44NCAzNTcuNDEgMjM3LjM0UTM1Ni40MCAyMzcuODUgMzU0LjU1IDIzNy44NVEzNTIuODcgMjM3Ljg1IDM1MS43OCAyMzcuMzRRMzUwLjY5IDIzNi44NCAzNTAuMjcgMjM1LjY2UTM0OS44NSAyMzQuNDkgMzQ5Ljg1IDIzMi42NEwzNDkuODUgMTI1LjYyUTM0OS44NSAxMjMuNzggMzUwLjM1IDEyMi42OFEzNTAuODYgMTIxLjU5IDM1MS45NSAxMjEuMDlRMzUzLjA0IDEyMC41OCAzNTQuNzIgMTIwLjU4UTM1Ni41NyAxMjAuNTggMzU3LjU4IDEyMS4wOVEzNTguNTggMTIxLjU5IDM1OSAxMjIuNjhRMzU5LjQyIDEyMy43OCAzNTkuNDIgMTI1Ljc5TDM1OS40MiAxODkuNjNMMzkxLjY4IDE1OC43MlEzOTIuODYgMTU3LjU0IDM5NC4wMyAxNTcuMDRRMzk1LjIxIDE1Ni41NCAzOTYuMzggMTU2Ljc5UTM5Ny41NiAxNTcuMDQgMzk4Ljc0IDE1OC41NVE0MDAuNTggMTYwLjc0IDQwMC41MCAxNjIuMjVRNDAwLjQyIDE2My43NiAzOTguNDAgMTY1LjYxTDM2Ni42NSAxOTUuODVNNDU2LjUzIDIzOC4zNVE0NTIuNjYgMjM4LjM1IDQ0OC43MiAyMzcuNjBRNDQ0Ljc3IDIzNi44NCA0NDEuMTYgMjM1LjQxUTQzNy41NCAyMzMuOTggNDM0LjUyIDIzMi4wNVE0MzEuNTAgMjMwLjEyIDQyOS42NSAyMjcuNzdRNDI4LjQ3IDIyNi4wOSA0MjcuOTcgMjI0LjkxUTQyNy40NiAyMjMuNzQgNDI3Ljg4IDIyMi43M1E0MjguMzAgMjIxLjcyIDQyOS40OCAyMjAuODhRNDMxLjMzIDIxOC44NiA0MzMuMDEgMjE5LjIwUTQzNC42OSAyMTkuNTQgNDM3LjM4IDIyMi4zOVE0MzguODkgMjI0LjA3IDQ0MS4yNCAyMjUuNTBRNDQzLjU5IDIyNi45MyA0NDYuMjggMjI3Ljk0UTQ0OC45NyAyMjguOTQgNDUxLjY2IDIyOS40NVE0NTQuMzQgMjI5Ljk1IDQ1Ni43MCAyMjkuOTVRNDY1Ljk0IDIyOS45NSA0NzEuNjUgMjI2LjM0UTQ3Ny4zNiAyMjIuNzMgNDc3LjM2IDIxNi41MVE0NzcuMzYgMjEzLjMyIDQ3Ni4xOCAyMTAuODhRNDc1LjAxIDIwOC40NSA0NzIuOTkgMjA2Ljc3UTQ3MC45OCAyMDUuMDkgNDY4LjM3IDIwMy44M1E0NjUuNzcgMjAyLjU3IDQ2Mi42NiAyMDEuNjRRNDU5LjU1IDIwMC43MiA0NTYuMzYgMTk5Ljg4UTQ1MS42NiAxOTguNzAgNDQ3LjA0IDE5Ny4yOFE0NDIuNDIgMTk1Ljg1IDQzOC43MiAxOTMuNjZRNDM1LjAyIDE5MS40OCA0MzIuNzYgMTg3Ljk1UTQzMC40OSAxODQuNDIgNDMwLjQ5IDE3OC44OFE0MzAuNDkgMTcyLjUwIDQzMy43NiAxNjcuNzlRNDM3LjA0IDE2My4wOSA0NDIuOTIgMTYwLjQwUTQ0OC44MCAxNTcuNzEgNDU2LjUzIDE1Ny43MVE0NjAuMzkgMTU3LjcxIDQ2My43NSAxNTguMzBRNDY3LjExIDE1OC44OSA0NzAuMDUgMTYwLjA2UTQ3Mi45OSAxNjEuMjQgNDc1LjYwIDE2Mi44NFE0NzguMjAgMTY0LjQzIDQ4MC4zOCAxNjYuNjJRNDgyLjQwIDE2OC40NiA0ODIuNTcgMTY5Ljk4UTQ4Mi43NCAxNzEuNDkgNDgxLjM5IDE3My4xN1E0NzkuODggMTc0Ljg1IDQ3OC4yMCAxNzUuMTBRNDc2LjUyIDE3NS4zNSA0NzQuNjcgMTczLjUwUTQ3MS45OCAxNzAuODIgNDY5LjA0IDE2OS4yMlE0NjYuMTAgMTY3LjYyIDQ2MyAxNjYuNzhRNDU5Ljg5IDE2NS45NCA0NTYuNTMgMTY1Ljk0UTQ1MS42NiAxNjUuOTQgNDQ3Ljc5IDE2Ny41NFE0NDMuOTMgMTY5LjE0IDQ0MS44MyAxNzIuMDhRNDM5LjczIDE3NS4wMiA0MzkuNzMgMTc4Ljg4UTQzOS43MyAxODEuNzQgNDQxLjE2IDE4My42N1E0NDIuNTggMTg1LjYwIDQ0NC45NCAxODYuOTRRNDQ3LjI5IDE4OC4yOSA0NTAuNDggMTg5LjMwUTQ1My42NyAxOTAuMzAgNDU3LjIwIDE5MS4zMVE0NjIuMjQgMTkyLjY2IDQ2Ny40NSAxOTQuMjVRNDcyLjY2IDE5NS44NSA0NzYuOTQgMTk4LjQ1UTQ4MS4yMiAyMDEuMDYgNDgzLjkxIDIwNS4yNlE0ODYuNjAgMjA5LjQ2IDQ4Ni42MCAyMTYuMThRNDg2LjYwIDIyNi4yNiA0NzguMTIgMjMyLjMwUTQ2OS42MyAyMzguMzUgNDU2LjUzIDIzOC4zNU01MTEuNjMgMjM3Ljg1UTUwOS43OCAyMzcuODUgNTA4LjY5IDIzNy4zNFE1MDcuNjAgMjM2Ljg0IDUwNy4xOCAyMzUuNjZRNTA2Ljc2IDIzNC40OSA1MDYuNzYgMjMyLjY0TDUwNi43NiAxMjUuNjJRNTA2Ljc2IDEyMy43OCA1MDcuMjYgMTIyLjY4UTUwNy43NyAxMjEuNTkgNTA4Ljg2IDEyMS4wOVE1MDkuOTUgMTIwLjU4IDUxMS44MCAxMjAuNThRNTEzLjY1IDEyMC41OCA1MTQuNzQgMTIxLjA5UTUxNS44MyAxMjEuNTkgNTE2LjI1IDEyMi42OFE1MTYuNjcgMTIzLjc4IDUxNi42NyAxMjUuNzlMNTE2LjY3IDE3MC45OFE1MjEuMDQgMTY1LjYxIDUyNy4zNCAxNjEuNDlRNTMzLjY0IDE1Ny4zOCA1NDMuMDUgMTU3LjM4UTU1Mi42MiAxNTcuMzggNTYwLjE4IDE2MS42NlE1NjcuNzQgMTY1Ljk0IDU3Mi4yMCAxNzMuOTJRNTc2LjY1IDE4MS45MCA1NzYuNjUgMTkzLjMzTDU3Ni42NSAyMzIuODFRNTc2LjY1IDIzNC42NiA1NzYuMjMgMjM1Ljc1UTU3NS44MSAyMzYuODQgNTc0LjgwIDIzNy4yNlE1NzMuNzkgMjM3LjY4IDU3MS45NCAyMzcuNjhRNTcwLjEwIDIzNy42OCA1NjkgMjM3LjE4UTU2Ny45MSAyMzYuNjcgNTY3LjQ5IDIzNS41OFE1NjcuMDcgMjM0LjQ5IDU2Ny4wNyAyMzIuNjRMNTY3LjA3IDE5My4xNlE1NjcuMDcgMTg0LjkzIDU2NC4zOCAxNzguODhRNTYxLjcwIDE3Mi44MyA1NTYuMzIgMTY5LjQ3UTU1MC45NCAxNjYuMTEgNTQyLjcxIDE2Ni4xMVE1MzEuNDYgMTY2LjExIDUyNC41NyAxNzIuNTBRNTE3LjY4IDE3OC44OCA1MTYuNjcgMTg5LjYzTDUxNi42NyAyMzIuODFRNTE2LjY3IDIzNC42NiA1MTYuMTcgMjM1Ljc1UTUxNS42NiAyMzYuODQgNTE0LjU3IDIzNy4zNFE1MTMuNDggMjM3Ljg1IDUxMS42MyAyMzcuODVNNjY2LjE5IDIzNy42OFE2NjMuODQgMjM3LjY4IDY2Mi44MyAyMzYuNTBRNjYxLjgyIDIzNS4zMyA2NjEuNDkgMjMyLjE0TDY2MS40OSAyMjAuODhRNjU5LjY0IDIyNC4wNyA2NTUuNjkgMjI4LjAyUTY1MS43NCAyMzEuOTcgNjQ1LjQ0IDIzNC45MVE2MzkuMTQgMjM3Ljg1IDYzMC4yNCAyMzcuODVRNjIyLjAxIDIzNy44NSA2MTUuMDQgMjM0Ljc0UTYwOC4wNiAyMzEuNjMgNjAyLjg2IDIyNi4wOVE1OTcuNjUgMjIwLjU0IDU5NC43MSAyMTMuMjRRNTkxLjc3IDIwNS45MyA1OTEuNzcgMTk3LjM2UTU5MS43NyAxODkuMTMgNTk0LjcxIDE4MS45OVE1OTcuNjUgMTc0Ljg1IDYwMi45NCAxNjkuMzlRNjA4LjIzIDE2My45MyA2MTUuMjAgMTYwLjgyUTYyMi4xOCAxNTcuNzEgNjMwLjI0IDE1Ny43MVE2MzguMTQgMTU3LjcxIDY0My43NiAxNTkuNzNRNjQ5LjM5IDE2MS43NCA2NTMuNjggMTY1LjI3UTY1Ny45NiAxNjguODAgNjYxLjQ5IDE3My41MEw2NjEuNDkgMTYzLjkzUTY2MS40OSAxNjAuNTcgNjYyLjU4IDE1OS4xNFE2NjMuNjcgMTU3LjcxIDY2Ni4zNiAxNTcuNzFRNjY4LjA0IDE1Ny43MSA2NjguOTYgMTU4LjMwUTY2OS44OSAxNTguODkgNjcwLjMxIDE2MC4yM1E2NzAuNzMgMTYxLjU4IDY3MC43MyAxNjMuOTNMNjcwLjczIDIzMi4xNFE2NzAuNzMgMjM0LjE1IDY3MC4zMSAyMzUuNDFRNjY5Ljg5IDIzNi42NyA2NjguODggMjM3LjE4UTY2Ny44NyAyMzcuNjggNjY2LjE5IDIzNy42OE02MzIuMDkgMjI5LjExUTY0MC4xNSAyMjkuMTEgNjQ2LjcwIDIyNVE2NTMuMjYgMjIwLjg4IDY1Ny4xMiAyMTMuODJRNjYwLjk4IDIwNi43NyA2NjAuOTggMTk3LjcwUTY2MC45OCAxODguMTIgNjU2Ljk1IDE4MS4wNlE2NTIuOTIgMTc0LjAxIDY0Ni4yOCAxNzAuMDZRNjM5LjY1IDE2Ni4xMSA2MzEuNzUgMTY2LjExUTYyMi41MSAxNjYuMTEgNjE1LjYyIDE3MC4zMVE2MDguNzQgMTc0LjUxIDYwNC44NyAxODEuNjVRNjAxLjAxIDE4OC43OSA2MDEuMDEgMTk4LjAzUTYwMS4wMSAyMDYuOTQgNjA0Ljg3IDIxMy45OVE2MDguNzQgMjIxLjA1IDYxNS43OSAyMjUuMDhRNjIyLjg1IDIyOS4xMSA2MzIuMDkgMjI5LjExIi8+CgogICAgPCEtLSBMaXRlIGluIHB1cmUgY3Vyc2l2ZSBzY3JpcHQgLS0+CiAgICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwMDdlYzciIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICA8IS0tIEN1cnNpdmUgQ2FwaXRhbCBMIC0tPgogICAgPHBhdGggZD0iCiAgICAgIE0gNzE4LDEzNQogICAgICBDIDcwNiw5OCA3MTgsNjIgNzQ0LDYyCiAgICAgIEMgNzYyLDYyIDc2OCw5MCA3NTgsMTMwCiAgICAgIEMgNzQ2LDE4MCA3MzAsMjE1IDcxMiwyMjYKICAgICAgQyA2OTgsMjM0IDY5NCwyMTYgNzA2LDIxMAogICAgICBDIDcxOCwyMDQgNzQwLDIyOCA3ODAsMjI4CiAgICAgIEMgNzk2LDIyOCA4MTIsMjI2IDgyNCwyMjIKICAgICIvPgogICAgCiAgICA8IS0tIGkgLS0+CiAgICA8cGF0aCBkPSIKICAgICAgTSA4NDAsMTU4CiAgICAgIEwgODU1LDIyNQogICAgICBDIDg1OCwyMzMgODY4LDIzNCA4NzYsMjI2CiAgICAiLz4KICAgIAogICAgPCEtLSB0IC0tPgogICAgPHBhdGggZD0iCiAgICAgIE0gOTAyLDk2CiAgICAgIEwgOTE2LDIyNQogICAgICBDIDkxOSwyMzQgOTMwLDIzNSA5NDAsMjI1CiAgICAiLz4KICAgIDxwYXRoIGQ9IgogICAgICBNIDg5MCwxNTgKICAgICAgTCA5MzIsMTU0CiAgICAiLz4KICAgIAogICAgPCEtLSBlIC0tPgogICAgPHBhdGggZD0iCiAgICAgIE0gOTU4LDIwNgogICAgICBDIDk2NSwxNzIgOTc2LDE1NSA5OTIsMTU1CiAgICAgIEMgMTAwOCwxNTUgMTAxMiwxNzIgOTk4LDE5MAogICAgICBDIDk4MiwyMTIgOTY4LDIzMCA5OTQsMjMwCiAgICAgIEMgMTAxMCwyMzAgMTAyMiwyMjIgMTAzMiwyMTIKICAgICIvPgogIDwvZz4KICA8IS0tIGkgZG90IC0tPgogIDxjaXJjbGUgY3g9Ijg0OCIgY3k9IjEyMiIgcj0iOSIgZmlsbD0iIzAwN2VjNyIvPgogIDwvZz4KPC9zdmc+";
+
+function applyLogoFallbacks() {
+  const logos = document.querySelectorAll("img[id*='Logo'], img[src*='logo']");
+  logos.forEach(img => {
+    img.addEventListener('error', function() {
+      if (this.dataset.fallbackApplied) return;
+      this.dataset.fallbackApplied = 'true';
+      this.src = PREKSHA_LOGO_FALLBACK;
+    });
+    // If already broken
+    if (img.complete && img.naturalWidth === 0 && img.src && !img.dataset.fallbackApplied) {
+      img.dataset.fallbackApplied = 'true';
+      img.src = PREKSHA_LOGO_FALLBACK;
+    }
+  });
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', applyLogoFallbacks);
+} else {
+  applyLogoFallbacks();
+}
+
+
 // Rotating Cities List
 const ROTATING_CITIES = [
   "Chennai",
@@ -88,24 +113,38 @@ let activeWhatsappNumber = WHATSAPP_NUMBER;
 
 // Fallback Categories (as specified in guidelines)
 const FALLBACK_CATEGORIES = [
-  
-  
+  { id: "c0000000-0000-4000-a000-000000000001", name: "Gate Lights", slug: "gate-lights", description: "Pillar and entrance lanterns.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790263311166-px9bao7.jpeg", sort_order: 1 },
+  { id: "c0000000-0000-4000-a000-000000000002", name: "Elevation Lights", slug: "elevation-lights", description: "Facade and exterior wall accent fixtures.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1789626815368-hcknfkiz9hp.jpeg", sort_order: 2 },
+  { id: "c0000000-0000-4000-a000-000000000003", name: "Hanging Lights", slug: "hanging-lights", description: "Modern pendant luminaires for dining & islands.", image_url: "", sort_order: 3 },
+  { id: "c0000000-0000-4000-a000-000000000004", name: "Chandeliers", slug: "chandeliers", description: "Grand luxury statement pieces.", image_url: "", sort_order: 4 },
+  { id: "c0000000-0000-4000-a000-000000000005", name: "Wall Lights", slug: "wall-lights", description: "Minimalist accent wall luminaires.", image_url: "", sort_order: 5 },
+  { id: "c0000000-0000-4000-a000-000000000006", name: "Profile Lights", slug: "profile-lights", description: "Seamless architectural linear lighting.", image_url: "", sort_order: 6 },
+  { id: "c0000000-0000-4000-a000-000000000007", name: "Spotlights", slug: "spotlights", description: "Precision focused COB spotlights.", image_url: "", sort_order: 7 },
+  { id: "c0000000-0000-4000-a000-000000000008", name: "Ceiling Lights", slug: "ceiling-lights", description: "Ultra-slim ambient panel luminaires.", image_url: "", sort_order: 8 }
 ];
 
 // Fallback Products for each category to ensure complete browsing experience
 const FALLBACK_PRODUCTS = [
-  // Gate Light
   {
-    id: "prod-gate-1",
-    name: "Opera Gate Light",
-    category: "Gate Light",
-    category_slug: "gate-light",
-    description: "Premium die-cast aluminum gate lamp with warm golden glow and weatherproof finish.",
-    price: "₹ 2,200",
-    image_url: "images/opera gate light.jpeg",
+    id: "9e8667ae-ec26-4baf-af48-42554404e5aa",
+    name: "ANTIQUE GATE LAMP",
+    category: "Gate Lights",
+    category_slug: "gate-lights",
+    description: "Premium architectural gate lamp with durable weather-resistant finish.",
+    price: "₹ 900",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790263311166-px9bao7.jpeg",
     sort_order: 1
   },
-  
+  {
+    id: "80ed80a2-6e52-4ee8-9dc0-e044c5bec96e",
+    name: "elevation",
+    category: "Elevation Lights",
+    category_slug: "elevation-lights",
+    description: "Dual-beam architectural exterior facade lighting.",
+    price: "₹ 1,850",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1789626815368-hcknfkiz9hp.jpeg",
+    sort_order: 2
+  }
 ];
 
 // Fallback SVG data generator for missing images
@@ -464,7 +503,7 @@ function loadAndApplySiteConfig() {
 }
 
 // Application Initialization
-document.addEventListener("DOMContentLoaded", async function () {
+async function initStorefrontApp() {
   loadAndApplySiteConfig();
   initBrandLogo();
   initVideoSourcePreservation();
@@ -485,6 +524,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   renderHomepageCategories();
   renderHomepageFeaturedProducts();
   updateFooterStatistics();
+  initPWAFeatures();
 
   // Listen to cross-tab updates from separate admin panel
   window.addEventListener("storage", function (e) {
@@ -504,18 +544,67 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   });
 
-  // Window scroll listener for floating header styling
+  // Throttled window scroll listener for floating header styling
+  let isScrollTicking = false;
   window.addEventListener("scroll", function () {
-    const mainHeader = document.getElementById("mainHeader");
-    if (mainHeader) {
-      if (window.scrollY > 40) {
-        mainHeader.classList.add("scrolled");
-      } else {
-        mainHeader.classList.remove("scrolled");
-      }
+    if (!isScrollTicking) {
+      window.requestAnimationFrame(() => {
+        const mainHeader = document.getElementById("mainHeader");
+        if (mainHeader) {
+          if (window.scrollY > 40) {
+            mainHeader.classList.add("scrolled");
+          } else {
+            mainHeader.classList.remove("scrolled");
+          }
+        }
+        isScrollTicking = false;
+      });
+      isScrollTicking = true;
     }
-  });
-});
+  }, { passive: true });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initStorefrontApp);
+} else {
+  initStorefrontApp();
+}
+
+/**
+ * Progressive Web App (PWA) Install Prompt, Service Worker, and Offline Management
+ */
+let deferredPwaPrompt = null;
+
+function initPWAFeatures() {
+  // 1. Register Service Worker if supported
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(err => {
+        console.debug('Service Worker info:', err.message);
+      });
+    });
+  }
+
+  // 2. Offline Status Indicator
+  function updateOnlineStatus() {
+    let offlineBanner = document.getElementById('pwaOfflineBanner');
+    if (!navigator.onLine) {
+      if (!offlineBanner) {
+        offlineBanner = document.createElement('div');
+        offlineBanner.id = 'pwaOfflineBanner';
+        offlineBanner.className = 'offline-banner';
+        offlineBanner.innerHTML = '<span class="offline-pulse"></span> Offline Mode — Viewing cached catalog';
+        document.body.appendChild(offlineBanner);
+      }
+      offlineBanner.style.display = 'flex';
+    } else if (offlineBanner) {
+      offlineBanner.style.display = 'none';
+    }
+  }
+  window.addEventListener('online', updateOnlineStatus);
+  window.addEventListener('offline', updateOnlineStatus);
+  updateOnlineStatus();
+}
 
 /**
  * Preserve the initial hero video src for lifecycle unloading/reloading
@@ -681,11 +770,34 @@ async function loadAppData() {
     console.warn("Supabase load exception, falling back to local dataset:", err);
   }
 
+  // Auto-derive categories from products if database has products but no categories
+  if (loadedCategories.length === 0 && loadedProducts.length > 0) {
+    const derivedCatsMap = new Map();
+    loadedProducts.forEach((p, idx) => {
+      const catName = (p.category || "").trim() || "General";
+      const slug = (p.category_slug || catName.toLowerCase().replace(/[^a-z0-9]+/g, "-")).trim();
+      if (!derivedCatsMap.has(slug)) {
+        derivedCatsMap.set(slug, {
+          id: `cat-${slug}`,
+          name: catName,
+          slug: slug,
+          description: `${catName} collection by PREKSHA LIGHTING WORLD.`,
+          image_url: p.image_url || "",
+          sort_order: idx + 1
+        });
+      }
+    });
+    loadedCategories = Array.from(derivedCatsMap.values());
+  }
+
   // Combine with fallback dataset if Supabase has missing items
   if (loadedCategories.length === 0) {
     appState.categories = [...FALLBACK_CATEGORIES];
   } else {
-    appState.categories = loadedCategories;
+    // Also include standard fallbacks that aren't yet in loadedCategories
+    const existingSlugs = new Set(loadedCategories.map(c => (c.slug || c.name || "").toLowerCase()));
+    const additionalFallbacks = FALLBACK_CATEGORIES.filter(c => !existingSlugs.has((c.slug || c.name || "").toLowerCase()));
+    appState.categories = [...loadedCategories, ...additionalFallbacks];
   }
 
   // Load custom categories saved in localStorage
@@ -825,8 +937,9 @@ function setupHeroCategorySlider() {
     });
   }
 
-  // Start auto timer
+  // Start auto timer & observer
   startHeroInterval();
+  initHeroVisibilityObserver();
 }
 
 /**
@@ -974,9 +1087,34 @@ function setHeroCategory(index) {
 function startHeroInterval() {
   clearInterval(appState.heroInterval);
   appState.heroInterval = setInterval(() => {
+    const heroElem = document.getElementById("home");
+    if (heroElem) {
+      const rect = heroElem.getBoundingClientRect();
+      if (rect.bottom <= 40 || rect.top >= window.innerHeight) {
+        // Offscreen - pause transitions to keep scroll buttery smooth
+        return;
+      }
+    }
     let nextIndex = (appState.currentHeroCategoryIndex + 1) % appState.categories.length;
     setHeroCategory(nextIndex);
-  }, 4500);
+  }, 5000);
+}
+
+function initHeroVisibilityObserver() {
+  const heroElem = document.getElementById("home");
+  if (!heroElem || !("IntersectionObserver" in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startHeroInterval();
+      } else {
+        clearInterval(appState.heroInterval);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  observer.observe(heroElem);
 }
 
 function resetHeroInterval() {
@@ -1025,20 +1163,210 @@ function renderHomepageCategories() {
 }
 
 /**
- * Render Featured Products on Homepage
+ * Global state for Curated Showcase single-line infinite sliding
+ */
+let showcaseHalfWidth = 0;
+let isShowcaseSliderInitialized = false;
+let isShowcaseVisible = true;
+let isShowcasePaused = false;
+let isShowcaseInteracting = false;
+let showcaseResumeTimer = null;
+let isShowcaseManuallyPaused = false;
+let showcaseAnimFrameId = null;
+let showcaseLastTimestamp = 0;
+
+/**
+ * Render Curated Showcase / Signature Products in a continuous single sliding line
  */
 function renderHomepageFeaturedProducts() {
   const grid = document.getElementById("homepageProductGrid");
+  const slider = document.getElementById("homepageProductSlider");
   if (!grid) return;
 
   grid.innerHTML = "";
-  // Display up to 8 products
-  const featured = appState.products.slice(0, 8);
 
-  featured.forEach((prod, idx) => {
-    const card = createProductCard(prod, idx, featured);
+  const productsToDisplay = appState.products && appState.products.length > 0 
+    ? appState.products 
+    : [];
+
+  if (productsToDisplay.length === 0) {
+    grid.innerHTML = `<p style="padding: 24px; color: var(--color-text-muted); text-align: center; width: 100%;">No products available currently.</p>`;
+    return;
+  }
+
+  // Ensure we have at least 6 distinct products in the base row so the track comfortably fills widescreen displays
+  let baseList = [...productsToDisplay];
+  while (baseList.length < 6) {
+    baseList = baseList.concat(productsToDisplay);
+  }
+
+  // Set A: Primary row
+  baseList.forEach((prod, idx) => {
+    const card = createProductCard(prod, idx, baseList);
+    card.setAttribute("data-set", "a");
     grid.appendChild(card);
   });
+
+  // Set B: Exact cloned row for seamless infinite wrap
+  baseList.forEach((prod, idx) => {
+    const card = createProductCard(prod, idx, baseList);
+    card.setAttribute("data-set", "b");
+    grid.appendChild(card);
+  });
+
+  // Initialize or re-calibrate the single-line continuous slider
+  setupShowcaseInfiniteSlider();
+}
+
+/**
+ * Controller for continuous single-line sliding with pause on hover/touch and arrow navigation
+ */
+function setupShowcaseInfiniteSlider() {
+  const slider = document.getElementById("homepageProductSlider");
+  const grid = document.getElementById("homepageProductGrid");
+  if (!slider || !grid) return;
+
+  // Re-calculate the halfWidth (distance from Set A start to Set B start)
+  const computeHalfWidth = () => {
+    const cards = grid.querySelectorAll(".product-card");
+    if (cards.length === 0) return;
+    const halfCount = Math.floor(cards.length / 2);
+    if (cards[halfCount]) {
+      showcaseHalfWidth = cards[halfCount].offsetLeft - cards[0].offsetLeft;
+    }
+    if (!showcaseHalfWidth || showcaseHalfWidth <= 50) {
+      showcaseHalfWidth = grid.scrollWidth / 2;
+    }
+  };
+
+  requestAnimationFrame(() => {
+    computeHalfWidth();
+    setTimeout(computeHalfWidth, 350);
+  });
+
+  if (!isShowcaseSliderInitialized) {
+    isShowcaseSliderInitialized = true;
+
+    window.addEventListener("resize", computeHalfWidth, { passive: true });
+
+    // 1. Pause on mouse hover (desktop)
+    slider.addEventListener("mouseenter", () => {
+      isShowcasePaused = true;
+    });
+    slider.addEventListener("mouseleave", () => {
+      isShowcasePaused = false;
+    });
+
+    // 2. Pause on touch interaction (mobile swipe)
+    slider.addEventListener("touchstart", () => {
+      isShowcaseInteracting = true;
+      clearTimeout(showcaseResumeTimer);
+    }, { passive: true });
+
+    slider.addEventListener("touchend", () => {
+      clearTimeout(showcaseResumeTimer);
+      showcaseResumeTimer = setTimeout(() => {
+        isShowcaseInteracting = false;
+      }, 2000);
+    }, { passive: true });
+
+    // 3. User manual scroll handling: seamless loop wrapping
+    slider.addEventListener("scroll", () => {
+      if (showcaseHalfWidth > 50) {
+        if (slider.scrollLeft >= showcaseHalfWidth * 1.85) {
+          slider.scrollLeft -= showcaseHalfWidth;
+        } else if (slider.scrollLeft <= 5) {
+          slider.scrollLeft += showcaseHalfWidth;
+        }
+      }
+    }, { passive: true });
+
+    // 4. Arrow navigation & pause/play controls
+    const prevBtn = document.getElementById("showcasePrevBtn");
+    const nextBtn = document.getElementById("showcaseNextBtn");
+    const pauseBtn = document.getElementById("showcasePauseBtn");
+    const pauseIcon = document.getElementById("showcasePauseIcon");
+    const playIcon = document.getElementById("showcasePlayIcon");
+
+    const getStepDistance = () => {
+      const firstCard = grid.querySelector(".product-card");
+      return firstCard ? firstCard.offsetWidth + 22 : 312;
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        isShowcaseInteracting = true;
+        if (slider.scrollLeft <= 20 && showcaseHalfWidth > 50) {
+          slider.scrollLeft += showcaseHalfWidth;
+        }
+        slider.scrollBy({ left: -getStepDistance(), behavior: "smooth" });
+        clearTimeout(showcaseResumeTimer);
+        showcaseResumeTimer = setTimeout(() => {
+          isShowcaseInteracting = false;
+        }, 2200);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        isShowcaseInteracting = true;
+        slider.scrollBy({ left: getStepDistance(), behavior: "smooth" });
+        clearTimeout(showcaseResumeTimer);
+        showcaseResumeTimer = setTimeout(() => {
+          isShowcaseInteracting = false;
+        }, 2200);
+      });
+    }
+
+    if (pauseBtn) {
+      pauseBtn.addEventListener("click", () => {
+        isShowcaseManuallyPaused = !isShowcaseManuallyPaused;
+        if (pauseIcon && playIcon) {
+          pauseIcon.style.display = isShowcaseManuallyPaused ? "none" : "block";
+          playIcon.style.display = isShowcaseManuallyPaused ? "block" : "none";
+        }
+        pauseBtn.setAttribute("aria-label", isShowcaseManuallyPaused ? "Resume Auto-Slide" : "Pause Auto-Slide");
+      });
+    }
+
+    // 5. IntersectionObserver: Pause sliding when section is not in viewport
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          isShowcaseVisible = entry.isIntersecting;
+        });
+      }, { threshold: 0.05 });
+      observer.observe(slider);
+    }
+
+    // 6. Smooth sliding animation loop using requestAnimationFrame
+    const speed = 0.85; // smooth luxury glide speed (~50px/sec)
+
+    function slideTick(now) {
+      if (!showcaseLastTimestamp) showcaseLastTimestamp = now;
+      const delta = Math.min(now - showcaseLastTimestamp, 50);
+      showcaseLastTimestamp = now;
+
+      if (
+        !isShowcaseManuallyPaused &&
+        !isShowcasePaused &&
+        !isShowcaseInteracting &&
+        isShowcaseVisible &&
+        showcaseHalfWidth > 50
+      ) {
+        const step = speed * (delta / 16.666);
+        slider.scrollLeft += step;
+        if (slider.scrollLeft >= showcaseHalfWidth) {
+          slider.scrollLeft -= showcaseHalfWidth;
+        }
+      }
+
+      showcaseAnimFrameId = requestAnimationFrame(slideTick);
+    }
+
+    if (showcaseAnimFrameId) cancelAnimationFrame(showcaseAnimFrameId);
+    showcaseAnimFrameId = requestAnimationFrame(slideTick);
+  }
 }
 
 /**
@@ -1485,34 +1813,15 @@ function initBrandLogo() {
   );
   if (!logoElements || logoElements.length === 0) return;
 
-  const candidateSources = [
-    "images/preksha-lite-logo.svg",
-    "images/preksha-lite-logo.png",
-    "images/preksha-lite-logo.jpeg",
-    "images/preksha-lite-logo.jpg",
-    "images/preksha-lite-logo.webp",
-    "images/logo.png",
-    "images/logo.jpeg",
-    "images/logo.jpg"
-  ];
-
-  function tryNext(imgElem, index) {
-    if (index >= candidateSources.length) return;
-    const nextSrc = candidateSources[index];
-    const testImg = new Image();
-    testImg.onload = function () {
-      imgElem.src = nextSrc;
-    };
-    testImg.onerror = function () {
-      tryNext(imgElem, index + 1);
-    };
-    testImg.src = nextSrc;
-  }
-
   logoElements.forEach((img) => {
     ensureLogoWebsiteMatching(img);
     img.addEventListener("error", function () {
-      tryNext(img, 0);
+      if (this.dataset.fallbackApplied) return;
+      this.dataset.fallbackApplied = 'true';
+      this.src = "images/preksha-lite-logo.png";
+      this.onerror = function() {
+        this.src = PREKSHA_LOGO_FALLBACK;
+      };
     }, { once: true });
   });
 }
@@ -1531,13 +1840,53 @@ function initAdminPanel() {
     window.location.href = "admin.html";
   };
 
-  // Dedicated keyboard shortcut for store administrator on PC: Ctrl + Shift + A or Cmd + Shift + A
+  // Multiple keyboard shortcuts for administrator:
+  // 1. Ctrl + Shift + A (or Cmd + Shift + A)
+  // 2. Ctrl + Shift + M (Manage) or Ctrl + Shift + E (Edit)
+  // 3. Alt + A (bypasses browser tab-search collisions)
+  // 4. Double-tapping Escape within 500ms
+  let lastEscTime = 0;
   window.addEventListener("keydown", function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === "A" || e.key === "a")) {
+    const isCtrlOrMeta = e.ctrlKey || e.metaKey;
+    const key = e.key ? e.key.toLowerCase() : "";
+
+    if (isCtrlOrMeta && e.shiftKey && (key === "a" || key === "m" || key === "e")) {
       e.preventDefault();
       window.location.href = "admin.html";
+      return;
+    }
+
+    if (e.altKey && key === "a") {
+      e.preventDefault();
+      window.location.href = "admin.html";
+      return;
+    }
+
+    if (e.key === "Escape") {
+      const now = Date.now();
+      if (now - lastEscTime < 500) {
+        window.location.href = "admin.html";
+      }
+      lastEscTime = now;
     }
   });
+
+  // Double click / double tap on brand logo opens admin CMS
+  const mainLogo = document.getElementById("mainHeaderLogo");
+  if (mainLogo) {
+    mainLogo.style.cursor = "pointer";
+    mainLogo.addEventListener("dblclick", function() {
+      window.location.href = "admin.html";
+    });
+  }
+
+  const catLogo = document.getElementById("categoryHeaderLogo");
+  if (catLogo) {
+    catLogo.style.cursor = "pointer";
+    catLogo.addEventListener("dblclick", function() {
+      window.location.href = "admin.html";
+    });
+  }
 
   const adminModal = document.getElementById("adminModal");
   if (!adminModal) return;
