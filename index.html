@@ -9,6 +9,17 @@
   <meta property="og:description" content="PREKSHA LIGHTING WORLD - Premium LED lighting solutions for homes, offices, shops and industries.">
   <meta property="og:type" content="website">
   
+  <!-- Progressive Web App (PWA) Meta & Icons -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#db5200">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Preksha Lite">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +47,7 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Quick Links Hamburger Control -->
+    <!-- Quick Links Hamburger Menu -->
     <div class="header-actions">
       <button id="mainHamburger" class="hamburger-btn" type="button" aria-label="Open Quick Links Menu" aria-expanded="false">
         <span class="line"></span>
@@ -61,7 +72,7 @@
   <section id="home" class="hero">
     <!-- Full-Bleed Hero Section Photo Backdrop -->
     <div class="hero-photo-backdrop" id="heroPhotoBackdrop">
-      <img id="heroBackdropImage" class="hero-backdrop-img" src="images/opera gate light.jpeg" alt="Hero Featured Luminaire" loading="eager">
+      <img id="heroBackdropImage" class="hero-backdrop-img" src="https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790263311166-px9bao7.jpeg" alt="Hero Featured Luminaire - PREKSHA LIGHTING WORLD" loading="eager" onerror="this.onerror=null; this.src='https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1789626815368-hcknfkiz9hp.jpeg';">
       <div class="hero-light-overlay"></div>
     </div>
 
@@ -100,15 +111,39 @@
     <!-- Dynamic Category Cards Grid (4 Col Desktop, 3 Tablet, 2 Mobile) -->
     <div id="homepageCategoryGrid" class="category-cards-grid"></div>
 
-    <!-- Featured Products Showcase -->
-    <div class="section-header" style="margin-top: 80px;">
+    <!-- Featured Products Showcase (Curated Showcase / Signature Products) -->
+    <div class="section-header showcase-header" style="margin-top: 80px;">
       <p class="section-tag">CURATED SHOWCASE</p>
       <h2 class="section-title">Signature Products</h2>
       <p class="section-subtitle">Engineered for timeless brilliance, energy efficiency, and modern sophistication.</p>
+      
+      <!-- Showcase Controls (Slide Left/Right, Pause/Play) -->
+      <div class="showcase-nav-row">
+        <div class="showcase-badge-status">
+          <span class="status-pulse-dot"></span>
+          <span>Sliding Showcase</span>
+        </div>
+        <div class="showcase-nav-btns">
+          <button id="showcasePrevBtn" class="showcase-ctrl-btn" type="button" aria-label="Slide Left" title="Slide Left">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button id="showcasePauseBtn" class="showcase-ctrl-btn" type="button" aria-label="Pause Auto-Slide" title="Pause / Resume">
+            <svg id="showcasePauseIcon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            <svg id="showcasePlayIcon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="display:none;"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button id="showcaseNextBtn" class="showcase-ctrl-btn" type="button" aria-label="Slide Right" title="Slide Right">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
 
-    <!-- Dynamic Product Cards Grid (4 Col Desktop, 3 Tablet, 2 Mobile) -->
-    <div id="homepageProductGrid" class="products-grid"></div>
+    <!-- Dynamic Product Cards in Single Sliding Line -->
+    <div class="showcase-slider-outer">
+      <div id="homepageProductSlider" class="showcase-slider-viewport">
+        <div id="homepageProductGrid" class="showcase-slider-track"></div>
+      </div>
+    </div>
   </section>
 
   <!-- =========================================================
@@ -444,6 +479,6 @@
   <!-- Supabase CDN Client -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <!-- Application Script -->
-  <script src="script.js"></script>
+  <script type="module" src="/script.js"></script>
 </body>
 </html>
