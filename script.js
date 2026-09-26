@@ -111,16 +111,13 @@ let currentSiteConfig = {
 let activeCitiesList = [...ROTATING_CITIES];
 let activeWhatsappNumber = WHATSAPP_NUMBER;
 
-// Fallback Categories (as specified in guidelines)
+// Fallback Categories (Genuine core architectural lighting collections)
 const FALLBACK_CATEGORIES = [
   { id: "c0000000-0000-4000-a000-000000000001", name: "Gate Lights", slug: "gate-lights", description: "Pillar and entrance lanterns.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790263311166-px9bao7.jpeg", sort_order: 1 },
   { id: "c0000000-0000-4000-a000-000000000002", name: "Elevation Lights", slug: "elevation-lights", description: "Facade and exterior wall accent fixtures.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1789626815368-hcknfkiz9hp.jpeg", sort_order: 2 },
-  { id: "c0000000-0000-4000-a000-000000000003", name: "Hanging Lights", slug: "hanging-lights", description: "Modern pendant luminaires for dining & islands.", image_url: "", sort_order: 3 },
-  { id: "c0000000-0000-4000-a000-000000000004", name: "Chandeliers", slug: "chandeliers", description: "Grand luxury statement pieces.", image_url: "", sort_order: 4 },
-  { id: "c0000000-0000-4000-a000-000000000005", name: "Wall Lights", slug: "wall-lights", description: "Minimalist accent wall luminaires.", image_url: "", sort_order: 5 },
-  { id: "c0000000-0000-4000-a000-000000000006", name: "Profile Lights", slug: "profile-lights", description: "Seamless architectural linear lighting.", image_url: "", sort_order: 6 },
-  { id: "c0000000-0000-4000-a000-000000000007", name: "Spotlights", slug: "spotlights", description: "Precision focused COB spotlights.", image_url: "", sort_order: 7 },
-  { id: "c0000000-0000-4000-a000-000000000008", name: "Ceiling Lights", slug: "ceiling-lights", description: "Ultra-slim ambient panel luminaires.", image_url: "", sort_order: 8 }
+  { id: "c0000000-0000-4000-a000-000000000003", name: "Hanging Lights", slug: "hanging-lights", description: "Modern pendant luminaires for dining & islands.", image_url: "images/wood hanging light.jpeg", sort_order: 3 },
+  { id: "c0000000-0000-4000-a000-000000000004", name: "Chandeliers", slug: "chandeliers", description: "Grand luxury statement pieces.", image_url: "images/chandelier gold.jpeg", sort_order: 4 },
+  { id: "cc5e088a-68f2-4056-b822-8f04e0d26e75", name: "LED WALL LIGHTS", slug: "led-wall-lights", description: "Beautiful wall Lights and sconces.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790339256880-omlmrn7.jpeg", sort_order: 5 }
 ];
 
 // Fallback Products for each category to ensure complete browsing experience
@@ -528,17 +525,25 @@ async function initStorefrontApp() {
 
   // Listen to cross-tab updates from separate admin panel
   window.addEventListener("storage", function (e) {
-    if (e.key === "preksha_site_config") {
+    if (!e.key || e.key === "preksha_site_config") {
       loadAndApplySiteConfig();
     }
-    if (e.key === "preksha_custom_categories" || e.key === "preksha_custom_products") {
+    if (!e.key || e.key === "preksha_deleted_categories" || e.key === "preksha_custom_categories" || e.key === "preksha_custom_products" || e.key === "preksha_last_category_update") {
       loadAppData().then(() => {
         setupHeroCategorySlider();
         renderHomepageCategories();
         renderHomepageFeaturedProducts();
         updateFooterStatistics();
         if (appState.activeCategory) {
-          openCategoryPage(appState.activeCategory);
+          const stillExists = appState.categories.some(c => 
+            (c.slug && appState.activeCategory.slug && c.slug.toLowerCase() === appState.activeCategory.slug.toLowerCase()) ||
+            (c.name && appState.activeCategory.name && c.name.toLowerCase() === appState.activeCategory.name.toLowerCase())
+          );
+          if (stillExists) {
+            openCategoryPage(appState.activeCategory);
+          } else if (typeof closeCategoryPage === "function") {
+            closeCategoryPage();
+          }
         }
       });
     }
@@ -720,22 +725,35 @@ async function loadAppData() {
 
       // Fetch Global Site Config from Supabase if table exists
       try {
-        const { data: configRows, error: configError } = await client
+        const { data: configRow, error: configError } = await client
           .from("site_config")
-          .select("*")
-          .limit(1);
+          .select("value")
+          .eq("key", "main_config")
+          .maybeSingle();
 
-        if (!configError && Array.isArray(configRows) && configRows.length > 0) {
-          const remoteConfig = configRows[0].value || configRows[0].config_data;
-          if (remoteConfig && typeof remoteConfig === "object") {
-            currentSiteConfig = { ...currentSiteConfig, ...remoteConfig };
-            localStorage.setItem("preksha_site_config", JSON.stringify(currentSiteConfig));
-            loadAndApplySiteConfig();
-          }
+        if (!configError && configRow && configRow.value && typeof configRow.value === "object" && !Array.isArray(configRow.value)) {
+          currentSiteConfig = { ...currentSiteConfig, ...configRow.value };
+          localStorage.setItem("preksha_site_config", JSON.stringify(currentSiteConfig));
+          loadAndApplySiteConfig();
         }
       } catch (cErr) {
         // Table may not exist yet if user hasn't created it in their Supabase
       }
+
+      // Fetch deleted categories blacklist from Cloud
+      try {
+        const { data: cloudDeleted } = await client
+          .from("site_config")
+          .select("value")
+          .eq("key", "preksha_deleted_categories")
+          .maybeSingle();
+        if (cloudDeleted && Array.isArray(cloudDeleted.value)) {
+          const rawLocal = localStorage.getItem("preksha_deleted_categories");
+          const localArr = rawLocal ? JSON.parse(rawLocal) : [];
+          const merged = new Set([...(Array.isArray(localArr) ? localArr : []), ...cloudDeleted.value].map(x => String(x).toLowerCase().trim()).filter(Boolean));
+          localStorage.setItem("preksha_deleted_categories", JSON.stringify(Array.from(merged)));
+        }
+      } catch (dErr) {}
 
       // Fetch Categories
       const { data: catData, error: catError } = await client
@@ -770,12 +788,41 @@ async function loadAppData() {
     console.warn("Supabase load exception, falling back to local dataset:", err);
   }
 
+  // Load user deleted category blacklist to prevent deleted categories from reappearing
+  let deletedCategoryKeys = new Set();
+  try {
+    const rawDeleted = localStorage.getItem("preksha_deleted_categories");
+    if (rawDeleted) {
+      const arr = JSON.parse(rawDeleted);
+      if (Array.isArray(arr)) {
+        arr.forEach(x => {
+          if (x) deletedCategoryKeys.add(String(x).toLowerCase().trim());
+        });
+      }
+    }
+  } catch (e) {}
+
+  const isDeletedCat = (c) => {
+    if (!c) return false;
+    const idKey = c.id ? String(c.id).toLowerCase().trim() : "";
+    const slugKey = c.slug ? String(c.slug).toLowerCase().trim() : "";
+    const nameKey = c.name ? String(c.name).toLowerCase().trim() : "";
+    return Boolean(
+      (idKey && deletedCategoryKeys.has(idKey)) ||
+      (slugKey && deletedCategoryKeys.has(slugKey)) ||
+      (nameKey && deletedCategoryKeys.has(nameKey))
+    );
+  };
+
   // Auto-derive categories from products if database has products but no categories
   if (loadedCategories.length === 0 && loadedProducts.length > 0) {
     const derivedCatsMap = new Map();
     loadedProducts.forEach((p, idx) => {
       const catName = (p.category || "").trim() || "General";
       const slug = (p.category_slug || catName.toLowerCase().replace(/[^a-z0-9]+/g, "-")).trim();
+      if (isDeletedCat({ name: catName, slug: slug })) {
+        return; // NEVER auto-derive a deleted category
+      }
       if (!derivedCatsMap.has(slug)) {
         derivedCatsMap.set(slug, {
           id: `cat-${slug}`,
@@ -790,32 +837,47 @@ async function loadAppData() {
     loadedCategories = Array.from(derivedCatsMap.values());
   }
 
-  // Combine with fallback dataset if Supabase has missing items
-  if (loadedCategories.length === 0) {
-    appState.categories = [...FALLBACK_CATEGORIES];
+  // Filter loaded categories to remove any deleted categories
+  loadedCategories = loadedCategories.filter(c => !isDeletedCat(c));
+
+  // Combine with fallback dataset or saved custom categories
+  let savedCustomCats = null;
+  try {
+    const rawCustom = localStorage.getItem("preksha_custom_categories");
+    if (rawCustom) savedCustomCats = JSON.parse(rawCustom);
+  } catch (e) {}
+
+  if (Array.isArray(savedCustomCats) && savedCustomCats.length > 0) {
+    appState.categories = savedCustomCats.filter(c => !isDeletedCat(c));
+
+    // Also include any new ones from Supabase that aren't deleted and aren't duplicates
+    const currentSlugs = new Set(appState.categories.map(c => (c.slug || c.name || "").toLowerCase()));
+    loadedCategories.forEach(lc => {
+      if (!isDeletedCat(lc)) {
+        const slug = (lc.slug || lc.name || "").toLowerCase();
+        if (!currentSlugs.has(slug)) {
+          appState.categories.push(lc);
+          currentSlugs.add(slug);
+        }
+      }
+    });
+  } else if (loadedCategories.length === 0) {
+    // Only use fallbacks if user has never deleted categories
+    if (deletedCategoryKeys.size === 0) {
+      appState.categories = FALLBACK_CATEGORIES.filter(c => !isDeletedCat(c));
+    } else {
+      appState.categories = [];
+    }
   } else {
-    // Also include standard fallbacks that aren't yet in loadedCategories
-    const existingSlugs = new Set(loadedCategories.map(c => (c.slug || c.name || "").toLowerCase()));
-    const additionalFallbacks = FALLBACK_CATEGORIES.filter(c => !existingSlugs.has((c.slug || c.name || "").toLowerCase()));
-    appState.categories = [...loadedCategories, ...additionalFallbacks];
+    // Strictly use what database returned, never reviving deleted categories
+    appState.categories = loadedCategories.filter(c => !isDeletedCat(c));
   }
 
-  // Load custom categories saved in localStorage
-  try {
-    const savedCategoriesJson = localStorage.getItem("preksha_custom_categories");
-    if (savedCategoriesJson) {
-      const customCats = JSON.parse(savedCategoriesJson);
-      if (Array.isArray(customCats)) {
-        customCats.forEach(cc => {
-          if (!appState.categories.some(existing => existing.id === cc.id || existing.slug === cc.slug)) {
-            appState.categories.push(cc);
-          }
-        });
-      }
-    }
-  } catch (e) {
-    console.warn("Error reading custom categories:", e);
-  }
+  // Double check no deleted categories remain in appState.categories
+  appState.categories = appState.categories.filter(c => !isDeletedCat(c));
+
+  // Ensure clean sequential ordering by sort_order
+  appState.categories.sort((a, b) => (Number(a.sort_order) || 99) - (Number(b.sort_order) || 99));
 
   if (loadedProducts.length === 0) {
     appState.products = [...FALLBACK_PRODUCTS];
@@ -824,15 +886,20 @@ async function loadAppData() {
     appState.products = loadedProducts;
   }
 
-  // Load custom products saved in localStorage (prepended so newest uploads appear first)
+  // Load custom products saved in localStorage (prepended so newest uploads appear first, and updated edits applied)
   try {
     const savedProductsJson = localStorage.getItem("preksha_custom_products");
     if (savedProductsJson) {
       const customProds = JSON.parse(savedProductsJson);
       if (Array.isArray(customProds)) {
-        const existingIds = new Set(appState.products.map(p => p.id));
-        const newProds = customProds.filter(p => !existingIds.has(p.id));
-        appState.products = [...newProds, ...appState.products];
+        customProds.forEach(cp => {
+          const idx = appState.products.findIndex(p => p.id === cp.id || (p.name && cp.name && p.name.toLowerCase() === cp.name.toLowerCase()));
+          if (idx !== -1) {
+            appState.products[idx] = { ...appState.products[idx], ...cp };
+          } else {
+            appState.products.unshift(cp);
+          }
+        });
       }
     }
   } catch (e) {

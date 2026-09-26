@@ -25,8 +25,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Comfortaa:wght@700&family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Stylesheet (versioned to avoid stale cache) -->
+  <link rel="stylesheet" href="style.css?v=3.1">
 </head>
 <body>
 
@@ -139,9 +139,9 @@
     </div>
 
     <!-- Dynamic Product Cards in Single Sliding Line -->
-    <div class="showcase-slider-outer">
-      <div id="homepageProductSlider" class="showcase-slider-viewport">
-        <div id="homepageProductGrid" class="showcase-slider-track"></div>
+    <div class="showcase-slider-outer" style="position:relative; width:100%; overflow:hidden;">
+      <div id="homepageProductSlider" class="showcase-slider-viewport" style="width:100%; overflow-x:auto; overflow-y:hidden; scrollbar-width:none; -webkit-overflow-scrolling:touch; touch-action:pan-x pan-y;">
+        <div id="homepageProductGrid" class="showcase-slider-track" style="display:flex !important; flex-direction:row !important; flex-wrap:nowrap !important; width:max-content; gap:22px;"></div>
       </div>
     </div>
   </section>
@@ -478,7 +478,7 @@
 
   <!-- Supabase CDN Client -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <!-- Application Script -->
-  <script type="module" src="/script.js"></script>
+  <!-- Application Script (versioned to avoid stale cache) -->
+  <script type="module" src="script.js?v=3.2"></script>
 </body>
 </html>
