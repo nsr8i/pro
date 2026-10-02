@@ -746,6 +746,7 @@ img {
   -ms-overflow-style: none; /* IE/Edge */
   -webkit-overflow-scrolling: touch;
   touch-action: pan-x pan-y;
+  scroll-behavior: auto !important;
   padding: 8px 24px 18px 24px;
 }
 
@@ -754,12 +755,14 @@ img {
 }
 
 /* The single line continuous sliding track */
+#homepageProductGrid,
 .showcase-slider-track {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   gap: 22px;
-  width: max-content;
+  width: max-content !important;
+  grid-template-columns: none !important;
 }
 
 #homepageProductGrid.showcase-slider-track {
@@ -773,6 +776,8 @@ img {
   width: 290px !important;
   min-width: 290px !important;
   max-width: 290px !important;
+  content-visibility: visible !important;
+  contain: none !important;
   margin-bottom: 0;
   background: var(--color-white);
   border: 1px solid var(--color-gray-border);
@@ -1055,37 +1060,35 @@ img {
   position: fixed;
   inset: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: var(--color-cream);
   z-index: 99999;
   overflow-y: auto;
   overflow-x: hidden;
-  display: none; /* controlled via JS */
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
   padding-top: 96px;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* When category view is active, hide all homepage items */
+/* When category view is active, cleanly lock background body and show collectionPage */
 body.collection-open {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 body.collection-open #collectionPage {
-  display: block;
+  display: block !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  touch-action: pan-y;
 }
 
 body.collection-open #mainHeader,
-body.collection-open #home,
-body.collection-open #heroVideo,
-body.collection-open .hero-video-container,
-body.collection-open #products,
-body.collection-open #about,
-body.collection-open #why-us,
-body.collection-open .cta-section,
-body.collection-open #contact,
-body.collection-open #mainFooter,
 body.collection-open #floatingWhatsapp {
-  display: none !important;
   visibility: hidden !important;
+  pointer-events: none !important;
   opacity: 0 !important;
 }
 
