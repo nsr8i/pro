@@ -111,26 +111,159 @@ let currentSiteConfig = {
 let activeCitiesList = [...ROTATING_CITIES];
 let activeWhatsappNumber = WHATSAPP_NUMBER;
 
-// Fallback Categories (as specified in guidelines)
+// Fallback Categories (Genuine core architectural lighting collections)
 const FALLBACK_CATEGORIES = [
-  
-  
+  { id: "c0000000-0000-4000-a000-000000000001", name: "Gate Lights", slug: "gate-lights", description: "Pillar and entrance lanterns.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790263311166-px9bao7.jpeg", sort_order: 1 },
+  { id: "c0000000-0000-4000-a000-000000000002", name: "Elevation Lights", slug: "elevation-lights", description: "Facade and exterior wall accent fixtures.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1789626815368-hcknfkiz9hp.jpeg", sort_order: 2 },
+  { id: "04a19717-6f03-411e-ba7b-2cd86025a2fa", name: "LED HANGING LIGHTS", slug: "led-hanging-lights", description: "Exclusive LED HANGING LIGHTS curated collection.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790599134687-gbc89th.jpeg", sort_order: 3 },
+  { id: "c0000000-0000-4000-a000-000000000003", name: "Hanging Lights", slug: "hanging-lights", description: "Modern pendant luminaires for dining & islands.", image_url: "images/wood hanging light.jpeg", sort_order: 4 },
+  { id: "c0000000-0000-4000-a000-000000000004", name: "Chandeliers", slug: "chandeliers", description: "Grand luxury statement pieces.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790352253265-oakt23z.jpeg", sort_order: 5 },
+  { id: "cc5e088a-68f2-4056-b822-8f04e0d26e75", name: "LED WALL LIGHTS", slug: "led-wall-lights", description: "Beautiful wall Lights and sconces.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790339256880-omlmrn7.jpeg", sort_order: 6 },
+  { id: "72bbb504-fb4e-4a5c-a14e-057607e0d5f5", name: "SINGLE HANGING LIGHTS", slug: "single-hanging-lights", description: "SINGLE BULB MODEL HANGING LIGHTS", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790599252753-rxienbx.jpeg", sort_order: 7 }
 ];
 
 // Fallback Products for each category to ensure complete browsing experience
 const FALLBACK_PRODUCTS = [
-  // Gate Light
   {
-    id: "prod-gate-1",
-    name: "Opera Gate Light",
-    category: "Gate Light",
-    category_slug: "gate-light",
-    description: "Premium die-cast aluminum gate lamp with warm golden glow and weatherproof finish.",
-    price: "₹ 2,200",
-    image_url: "images/opera gate light.jpeg",
+    id: "9e8667ae-ec26-4baf-af48-42554404e5aa",
+    name: "ANTIQUE GATE LAMP",
+    category: "Gate Lights",
+    category_slug: "gate-lights",
+    description: "Premium architectural gate lamp with durable weather-resistant finish.",
+    price: "₹ 900",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790263311166-px9bao7.jpeg",
     sort_order: 1
   },
-  
+  {
+    id: "a52c1d39-fcfe-49d5-ab0c-5d3ac383376d",
+    name: "sq gate lamp",
+    category: "Gate Lights",
+    category_slug: "gate-lights",
+    description: "Modern square pillar gate light for residential entries.",
+    price: "₹ 900",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790446645003-356gl24.jpeg",
+    sort_order: 2
+  },
+  {
+    id: "4bac426b-a223-4949-9159-32fa56d6d7e3",
+    name: "deepam gate light",
+    category: "Gate Lights",
+    category_slug: "gate-lights",
+    description: "Traditional aesthetic outdoor entrance gate lantern.",
+    price: "₹ 600",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790446678855-quc4jvx.jpeg",
+    sort_order: 3
+  },
+  {
+    id: "80ed80a2-6e52-4ee8-9dc0-e044c5bec96e",
+    name: "elevation",
+    category: "Elevation Lights",
+    category_slug: "elevation-lights",
+    description: "Dual-beam architectural exterior facade lighting.",
+    price: "₹ 1,850",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1789626815368-hcknfkiz9hp.jpeg",
+    sort_order: 4
+  },
+  {
+    id: "17e02947-d0b2-4b7f-b63a-d248cf3534cf",
+    name: "led hanging light 7175/1",
+    category: "LED WALL LIGHTS",
+    category_slug: "led-wall-lights",
+    description: "LED WALL LIGHTS product crafted with premium quality.",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790340416428-yu1yjgb.jpeg",
+    price: "₹ 2000",
+    sort_order: 5
+  },
+  {
+    id: "e1301400-4acb-4960-9507-0e75d2cfad61",
+    name: "led hanging light 8501/2",
+    category: "LED WALL LIGHTS",
+    category_slug: "led-wall-lights",
+    description: "3 in 1 color changing architectural wall light.",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790339679599-j3s7j7j.jpeg",
+    price: "₹ 1,800",
+    sort_order: 6
+  },
+  {
+    id: "c1b709c1-c7ea-40da-8d09-96236f4668a8",
+    name: "led hanging light 8503/2",
+    category: "LED WALL LIGHTS",
+    category_slug: "led-wall-lights",
+    description: "Designer double-glow wall sconce luminaire.",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790340027747-llv18wb.jpeg",
+    price: "₹ 3600",
+    sort_order: 7
+  },
+  {
+    id: "efc4fb9c-ddc9-4b0a-af78-688e533b2aa2",
+    name: "led hanging light 8602/2",
+    category: "LED WALL LIGHTS",
+    category_slug: "led-wall-lights",
+    description: "Contemporary gold-trimmed curved wall fixture.",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790340105388-uoxi6fa.jpeg",
+    price: "₹ 3600",
+    sort_order: 8
+  },
+  {
+    id: "3cda8933-b86d-4dfb-8603-b072bb3e2958",
+    name: "led hanging light 7181/2",
+    category: "LED WALL LIGHTS",
+    category_slug: "led-wall-lights",
+    description: "3in1 light changing fixture with subtle warm tones.",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790340221343-dr4s8ex.jpeg",
+    price: "₹ 2600",
+    sort_order: 9
+  },
+  {
+    id: "198f7e50-adaa-4686-8a21-7ecfd753d7b9",
+    name: "led hanging light 7174/1",
+    category: "LED WALL LIGHTS",
+    category_slug: "led-wall-lights",
+    description: "Minimalist compact interior LED accent luminaire.",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790340372814-obrak71.jpeg",
+    price: "₹ 2000",
+    sort_order: 10
+  },
+  {
+    id: "dbe18d35-f01b-4e05-b3d8-148622d84098",
+    name: "led hanging light 3758/1",
+    category: "LED WALL LIGHTS",
+    category_slug: "led-wall-lights",
+    description: "Led wall light 3in1 in crystal flower model.",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790340950887-lut5z2f.jpeg",
+    price: "₹ 3200",
+    sort_order: 11
+  },
+  {
+    id: "ac066752-8e0e-46e9-8fbc-aed1ec6a9b97",
+    name: "led hanging light 3660/1",
+    category: "LED WALL LIGHTS",
+    category_slug: "led-wall-lights",
+    description: "Artistic luxury frosted glass wall sconce.",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790340471626-11wbs1z.jpeg",
+    price: "₹ 3200",
+    sort_order: 12
+  },
+  {
+    id: "p0000000-0000-4000-b000-000000000003",
+    name: "Nordic Pendant Chandelier",
+    category: "Hanging Lights",
+    category_slug: "hanging-lights",
+    description: "Warm wooden accent hanging luminaire for dining tables and islands.",
+    price: "₹ 2,400",
+    image_url: "images/wood hanging light.jpeg",
+    sort_order: 13
+  },
+  {
+    id: "p0000000-0000-4000-b000-000000000004",
+    name: "Royal Crystal Chandelier",
+    category: "Chandeliers",
+    category_slug: "chandeliers",
+    description: "Grand gold crystal chandelier for high ceiling living halls.",
+    price: "₹ 14,500",
+    image_url: "images/chandelier gold.jpeg",
+    sort_order: 14
+  }
 ];
 
 // Fallback SVG data generator for missing images
@@ -164,7 +297,21 @@ function getSvgFallback(title, type) {
   return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
 }
 
-// Global Application State
+// Global Application State & UI Flags (Initialized at top level to avoid TDZ)
+let isCategoryNavInitialized = false;
+let isHeroObserverInitialized = false;
+let showcaseHalfWidth = 0;
+let isShowcaseSliderInitialized = false;
+let isShowcaseVisible = true;
+let isShowcasePaused = false;
+let isShowcaseInteracting = false;
+let showcaseResumeTimer = null;
+let isShowcaseManuallyPaused = false;
+let showcaseAnimFrameId = null;
+let showcaseLastTimestamp = 0;
+let showcaseScrollPos = 0;
+let deferredPwaPrompt = null;
+
 let appState = {
   categories: [],
   products: [],
@@ -356,10 +503,18 @@ function loadAndApplySiteConfig() {
   if (heroDesc && c.heroDescription) heroDesc.textContent = c.heroDescription;
 
   const heroPrimaryBtn = document.getElementById("heroPrimaryBtn");
-  if (heroPrimaryBtn && c.heroPrimaryBtnText) heroPrimaryBtn.textContent = c.heroPrimaryBtnText;
+  if (heroPrimaryBtn && c.heroPrimaryBtnText) {
+    const span = heroPrimaryBtn.querySelector("span");
+    if (span) span.textContent = c.heroPrimaryBtnText;
+    else heroPrimaryBtn.textContent = c.heroPrimaryBtnText;
+  }
 
   const heroSecondaryBtn = document.getElementById("heroSecondaryBtn");
-  if (heroSecondaryBtn && c.heroSecondaryBtnText) heroSecondaryBtn.textContent = c.heroSecondaryBtnText;
+  if (heroSecondaryBtn && c.heroSecondaryBtnText) {
+    const span = heroSecondaryBtn.querySelector("span");
+    if (span) span.textContent = c.heroSecondaryBtnText;
+    else heroSecondaryBtn.textContent = c.heroSecondaryBtnText;
+  }
 
   // 5. About Section (Supports Video and Photo)
   const aboutImage = document.getElementById("aboutImage");
@@ -497,6 +652,7 @@ async function initStorefrontApp() {
   initContactForm();
   initRotatingCities();
   initModalListeners();
+  initCategoryNavigation();
   initAdminPanel();
 
   // Load Data from Supabase with Fallbacks
@@ -511,41 +667,88 @@ async function initStorefrontApp() {
   renderHomepageFeaturedProducts();
   updateFooterStatistics();
 
+  // Check URL hash immediately on initial load (e.g. if arriving via direct category link)
+  handleUrlHashChange();
+
+  initPWAFeatures();
+
   // Listen to cross-tab updates from separate admin panel
   window.addEventListener("storage", function (e) {
-    if (e.key === "preksha_site_config") {
+    if (!e.key || e.key === "preksha_site_config") {
       loadAndApplySiteConfig();
     }
-    if (e.key === "preksha_custom_categories" || e.key === "preksha_custom_products") {
+    if (!e.key || e.key === "preksha_deleted_categories" || e.key === "preksha_custom_categories" || e.key === "preksha_custom_products" || e.key === "preksha_last_category_update") {
       loadAppData().then(() => {
         setupHeroCategorySlider();
         renderHomepageCategories();
         renderHomepageFeaturedProducts();
         updateFooterStatistics();
         if (appState.activeCategory) {
-          openCategoryPage(appState.activeCategory);
+          const stillExists = appState.categories.some(c => 
+            (c.slug && appState.activeCategory.slug && c.slug.toLowerCase() === appState.activeCategory.slug.toLowerCase()) ||
+            (c.name && appState.activeCategory.name && c.name.toLowerCase() === appState.activeCategory.name.toLowerCase())
+          );
+          if (stillExists) {
+            openCategoryPage(appState.activeCategory, false);
+          } else if (typeof closeCategoryPage === "function") {
+            closeCategoryPage("previous", true);
+          }
         }
       });
     }
   });
 
-  // Window scroll listener for floating header styling
+  // Throttled window scroll listener for floating header styling
+  let isScrollTicking = false;
   window.addEventListener("scroll", function () {
-    const mainHeader = document.getElementById("mainHeader");
-    if (mainHeader) {
-      if (window.scrollY > 40) {
-        mainHeader.classList.add("scrolled");
-      } else {
-        mainHeader.classList.remove("scrolled");
-      }
+    if (!isScrollTicking) {
+      window.requestAnimationFrame(() => {
+        const mainHeader = document.getElementById("mainHeader");
+        if (mainHeader) {
+          if (window.scrollY > 40) {
+            mainHeader.classList.add("scrolled");
+          } else {
+            mainHeader.classList.remove("scrolled");
+          }
+        }
+        isScrollTicking = false;
+      });
+      isScrollTicking = true;
     }
-  });
+  }, { passive: true });
 }
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initStorefrontApp);
-} else {
-  initStorefrontApp();
+/**
+ * Progressive Web App (PWA) Install Prompt, Service Worker, and Offline Management
+ */
+
+function initPWAFeatures() {
+  // 1. Unregister any service workers to ensure fresh loading
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+      registrations.forEach(r => r.unregister());
+    });
+  }
+
+  // 2. Offline Status Indicator
+  function updateOnlineStatus() {
+    let offlineBanner = document.getElementById('pwaOfflineBanner');
+    if (!navigator.onLine) {
+      if (!offlineBanner) {
+        offlineBanner = document.createElement('div');
+        offlineBanner.id = 'pwaOfflineBanner';
+        offlineBanner.className = 'offline-banner';
+        offlineBanner.innerHTML = '<span class="offline-pulse"></span> Offline Mode — Viewing cached catalog';
+        document.body.appendChild(offlineBanner);
+      }
+      offlineBanner.style.display = 'flex';
+    } else if (offlineBanner) {
+      offlineBanner.style.display = 'none';
+    }
+  }
+  window.addEventListener('online', updateOnlineStatus);
+  window.addEventListener('offline', updateOnlineStatus);
+  updateOnlineStatus();
 }
 
 /**
@@ -605,14 +808,21 @@ function initHamburgerMenus() {
 
     catDropdown.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", function (e) {
+        e.preventDefault();
         const href = this.getAttribute("href");
         closeAllDropdowns();
-        closeCategoryPage();
-        if (href && href.startsWith("#")) {
-          setTimeout(() => {
-            const target = document.querySelector(href);
-            if (target) target.scrollIntoView({ behavior: "smooth" });
-          }, 100);
+        if (href === "#home") {
+          closeCategoryPage("home", true);
+        } else if (href === "#products") {
+          closeCategoryPage("products", true);
+        } else if (href && href.startsWith("#")) {
+          closeCategoryPage("none", true);
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: "auto" });
+          }
+        } else {
+          closeCategoryPage("home", true);
         }
       });
     });
@@ -623,8 +833,7 @@ function initHamburgerMenus() {
   if (categoryHomeBtn) {
     categoryHomeBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      closeCategoryPage();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      closeCategoryPage("home", true);
     });
   }
 
@@ -647,7 +856,7 @@ function closeAllDropdowns() {
 }
 
 /**
- * Fetch Categories and Products from Supabase
+ * Fetch Categories and Products from Supabase with resilient parallel fetching, timeouts & fallbacks
  */
 async function loadAppData() {
   let loadedCategories = [];
@@ -656,52 +865,93 @@ async function loadAppData() {
   const activeUrl = currentSiteConfig.customSupabaseUrl || SUPABASE_URL;
   const activeKey = currentSiteConfig.customSupabaseKey || SUPABASE_KEY;
 
+  // 1. Load user deleted category blacklist from localStorage first
+  let deletedCategoryKeys = new Set();
+  try {
+    const rawDeleted = localStorage.getItem("preksha_deleted_categories");
+    if (rawDeleted) {
+      const arr = JSON.parse(rawDeleted);
+      if (Array.isArray(arr)) {
+        arr.forEach(x => {
+          if (x) deletedCategoryKeys.add(String(x).toLowerCase().trim());
+        });
+      }
+    }
+  } catch (e) {}
+
+  const isDeletedCat = (c) => {
+    if (!c) return false;
+    const idKey = c.id ? String(c.id).toLowerCase().trim() : "";
+    const slugKey = c.slug ? String(c.slug).toLowerCase().trim() : "";
+    const nameKey = c.name ? String(c.name).toLowerCase().trim() : "";
+    const normSlug = slugKey.replace(/[^a-z0-9]/g, "");
+    const normName = nameKey.replace(/[^a-z0-9]/g, "");
+
+    for (const d of deletedCategoryKeys) {
+      if (!d) continue;
+      const dClean = String(d).toLowerCase().trim();
+      const dNorm = dClean.replace(/[^a-z0-9]/g, "");
+      if (idKey && idKey === dClean) return true;
+      if (slugKey && slugKey === dClean) return true;
+      if (nameKey && nameKey === dClean) return true;
+      if (normSlug && normSlug.length > 2 && normSlug === dNorm) return true;
+      if (normName && normName.length > 2 && normName === dNorm) return true;
+    }
+    return false;
+  };
+
+  // 2. Fetch from Supabase in parallel with 4.5s timeout to guarantee zero page stalling
   try {
     if (window.supabase && typeof window.supabase.createClient === "function") {
       const client = window.supabase.createClient(activeUrl, activeKey);
 
-      // Fetch Global Site Config from Supabase if table exists
-      try {
-        const { data: configRows, error: configError } = await client
-          .from("site_config")
-          .select("*")
-          .limit(1);
+      const withTimeout = (promise, ms = 4500) => {
+        return Promise.race([
+          promise,
+          new Promise((_, reject) => setTimeout(() => reject(new Error("Supabase fetch timeout")), ms))
+        ]);
+      };
 
-        if (!configError && Array.isArray(configRows) && configRows.length > 0) {
-          const remoteConfig = configRows[0].value || configRows[0].config_data;
-          if (remoteConfig && typeof remoteConfig === "object") {
-            currentSiteConfig = { ...currentSiteConfig, ...remoteConfig };
-            localStorage.setItem("preksha_site_config", JSON.stringify(currentSiteConfig));
-            loadAndApplySiteConfig();
-          }
+      const [configResult, deletedResult, catResult, prodResult] = await Promise.allSettled([
+        withTimeout(client.from("site_config").select("value").eq("key", "main_config").maybeSingle()),
+        withTimeout(client.from("site_config").select("value").eq("key", "preksha_deleted_categories").maybeSingle()),
+        withTimeout(client.from("categories").select("*").order("sort_order", { ascending: true })),
+        withTimeout(client.from("products").select("*").order("sort_order", { ascending: true }))
+      ]);
+
+      // Apply site_config
+      if (configResult.status === "fulfilled" && !configResult.value.error && configResult.value.data?.value) {
+        const cloudVal = configResult.value.data.value;
+        if (typeof cloudVal === "object" && !Array.isArray(cloudVal)) {
+          currentSiteConfig = { ...currentSiteConfig, ...cloudVal };
+          localStorage.setItem("preksha_site_config", JSON.stringify(currentSiteConfig));
+          loadAndApplySiteConfig();
         }
-      } catch (cErr) {
-        // Table may not exist yet if user hasn't created it in their Supabase
       }
 
-      // Fetch Categories
-      const { data: catData, error: catError } = await client
-        .from("categories")
-        .select("*")
-        .order("sort_order", { ascending: true });
+      // Merge Cloud Deleted Categories Blacklist
+      if (deletedResult.status === "fulfilled" && !deletedResult.value.error && deletedResult.value.data?.value) {
+        const cloudArr = deletedResult.value.data.value;
+        if (Array.isArray(cloudArr)) {
+          cloudArr.forEach(x => {
+            if (x) deletedCategoryKeys.add(String(x).toLowerCase().trim());
+          });
+          localStorage.setItem("preksha_deleted_categories", JSON.stringify(Array.from(deletedCategoryKeys)));
+        }
+      }
 
-      if (!catError && Array.isArray(catData) && catData.length > 0) {
-        // Filter active if status or is_active exists
-        loadedCategories = catData.filter(c => {
+      // Process Categories
+      if (catResult.status === "fulfilled" && !catResult.value.error && Array.isArray(catResult.value.data) && catResult.value.data.length > 0) {
+        loadedCategories = catResult.value.data.filter(c => {
           if (typeof c.is_active === "boolean") return c.is_active;
           if (typeof c.status === "string") return c.status.toLowerCase() === "active";
           return true;
         });
       }
 
-      // Fetch Products
-      const { data: prodData, error: prodError } = await client
-        .from("products")
-        .select("*")
-        .order("sort_order", { ascending: true });
-
-      if (!prodError && Array.isArray(prodData) && prodData.length > 0) {
-        loadedProducts = prodData.filter(p => {
+      // Process Products
+      if (prodResult.status === "fulfilled" && !prodResult.value.error && Array.isArray(prodResult.value.data) && prodResult.value.data.length > 0) {
+        loadedProducts = prodResult.value.data.filter(p => {
           if (typeof p.is_active === "boolean") return p.is_active;
           if (typeof p.status === "string") return p.status.toLowerCase() === "active";
           return true;
@@ -709,49 +959,94 @@ async function loadAppData() {
       }
     }
   } catch (err) {
-    console.warn("Supabase load exception, falling back to local dataset:", err);
+    console.warn("Supabase parallel load exception, falling back smoothly:", err);
   }
 
-  // Combine with fallback dataset if Supabase has missing items
-  if (loadedCategories.length === 0) {
-    appState.categories = [...FALLBACK_CATEGORIES];
-  } else {
-    appState.categories = loadedCategories;
-  }
-
-  // Load custom categories saved in localStorage
-  try {
-    const savedCategoriesJson = localStorage.getItem("preksha_custom_categories");
-    if (savedCategoriesJson) {
-      const customCats = JSON.parse(savedCategoriesJson);
-      if (Array.isArray(customCats)) {
-        customCats.forEach(cc => {
-          if (!appState.categories.some(existing => existing.id === cc.id || existing.slug === cc.slug)) {
-            appState.categories.push(cc);
-          }
+  // 3. Auto-derive categories from products ONLY if database has zero categories and no fallbacks
+  if (loadedCategories.length === 0 && loadedProducts.length > 0) {
+    const derivedCatsMap = new Map();
+    loadedProducts.forEach((p, idx) => {
+      const catName = (p.category || "").trim() || "General";
+      const slug = (p.category_slug || catName.toLowerCase().replace(/[^a-z0-9]+/g, "-")).trim();
+      if (isDeletedCat({ name: catName, slug: slug })) {
+        return; // NEVER auto-derive a deleted category
+      }
+      if (!derivedCatsMap.has(slug)) {
+        derivedCatsMap.set(slug, {
+          id: `cat-${slug}`,
+          name: catName,
+          slug: slug,
+          description: `${catName} collection by PREKSHA LIGHTING WORLD.`,
+          image_url: p.image_url || "",
+          sort_order: idx + 1
         });
       }
-    }
-  } catch (e) {
-    console.warn("Error reading custom categories:", e);
+    });
+    loadedCategories = Array.from(derivedCatsMap.values());
   }
+
+  // 4. Strict filter loaded categories to remove any deleted categories
+  loadedCategories = loadedCategories.filter(c => !isDeletedCat(c));
+
+  // 5. Combine with localStorage custom categories and sanitize them
+  let savedCustomCats = null;
+  try {
+    const rawCustom = localStorage.getItem("preksha_custom_categories");
+    if (rawCustom) savedCustomCats = JSON.parse(rawCustom);
+  } catch (e) {}
+
+  if (Array.isArray(savedCustomCats) && savedCustomCats.length > 0) {
+    // Purge any deleted categories from the custom cache
+    const cleanedCustom = savedCustomCats.filter(c => !isDeletedCat(c));
+    localStorage.setItem("preksha_custom_categories", JSON.stringify(cleanedCustom));
+
+    appState.categories = cleanedCustom;
+
+    // Merge in any active ones from Supabase
+    const currentSlugs = new Set(appState.categories.map(c => (c.slug || c.name || "").toLowerCase()));
+    loadedCategories.forEach(lc => {
+      if (!isDeletedCat(lc)) {
+        const slug = (lc.slug || lc.name || "").toLowerCase();
+        if (!currentSlugs.has(slug)) {
+          appState.categories.push(lc);
+          currentSlugs.add(slug);
+        }
+      }
+    });
+  } else if (loadedCategories.length === 0) {
+    // Only use fallbacks if user hasn't explicitly deleted them
+    appState.categories = FALLBACK_CATEGORIES.filter(c => !isDeletedCat(c));
+  } else {
+    // Strictly use what database returned, never reviving deleted categories
+    appState.categories = loadedCategories.filter(c => !isDeletedCat(c));
+  }
+
+  // 6. Final verification filter
+  appState.categories = appState.categories.filter(c => !isDeletedCat(c));
+
+  // Clean sequential ordering by sort_order
+  appState.categories.sort((a, b) => (Number(a.sort_order) || 99) - (Number(b.sort_order) || 99));
 
   if (loadedProducts.length === 0) {
     appState.products = [...FALLBACK_PRODUCTS];
   } else {
-    // If Supabase returned some products, also ensure fallbacks exist for any category lacking products
     appState.products = loadedProducts;
   }
 
-  // Load custom products saved in localStorage (prepended so newest uploads appear first)
+  // Load custom products saved in localStorage (prepended so newest uploads appear first, and updated edits applied)
   try {
     const savedProductsJson = localStorage.getItem("preksha_custom_products");
     if (savedProductsJson) {
       const customProds = JSON.parse(savedProductsJson);
       if (Array.isArray(customProds)) {
-        const existingIds = new Set(appState.products.map(p => p.id));
-        const newProds = customProds.filter(p => !existingIds.has(p.id));
-        appState.products = [...newProds, ...appState.products];
+        customProds.forEach(cp => {
+          const idx = appState.products.findIndex(p => p.id === cp.id || (p.name && cp.name && p.name.toLowerCase() === cp.name.toLowerCase()));
+          if (idx !== -1) {
+            appState.products[idx] = { ...appState.products[idx], ...cp };
+          } else {
+            appState.products.unshift(cp);
+          }
+        });
       }
     }
   } catch (e) {
@@ -788,6 +1083,39 @@ function setupHeroCategorySlider() {
     });
   }
 
+  // Render Category Names Strip Below Hero Image (All categories clickable)
+  const namesStrip = document.getElementById("heroCategoryNamesStrip");
+  if (namesStrip) {
+    namesStrip.innerHTML = "";
+    appState.categories.forEach((cat, index) => {
+      const chip = document.createElement("button");
+      chip.className = `hero-cat-chip ${index === (appState.currentHeroCategoryIndex || 0) ? "active" : ""}`;
+      chip.type = "button";
+      chip.textContent = cat.name;
+      chip.setAttribute("aria-label", `Switch hero luminaire to ${cat.name}`);
+      chip.addEventListener("click", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        setHeroCategory(index);
+        resetHeroInterval();
+      });
+      namesStrip.appendChild(chip);
+    });
+  }
+
+  // Connect "Explore Collection" button below hero image
+  const heroExploreBtn = document.getElementById("heroViewCollectionBtn");
+  if (heroExploreBtn) {
+    heroExploreBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      const currentCat = appState.categories[appState.currentHeroCategoryIndex || 0] || appState.categories[0];
+      if (currentCat) {
+        openCategoryPage(currentCat);
+      }
+    });
+  }
+
   // Render Hero Thumbnails Strip
   if (heroThumbnailsStrip) {
     heroThumbnailsStrip.innerHTML = "";
@@ -810,17 +1138,112 @@ function setupHeroCategorySlider() {
     });
   }
 
-  // Click on Hero Product Card opens Product Viewer Modal
+  // Click on Hero Product/Image opens Product Viewer Modal
   const openHeroProductModal = (e) => {
-    e.preventDefault();
-    const currentCat = appState.categories[appState.currentHeroCategoryIndex];
+    if (e) {
+      if (e.target && (
+        e.target.closest(".hero-category-bar") ||
+        e.target.closest(".hero-cat-chip") ||
+        e.target.closest(".hero-category-names-strip") ||
+        e.target.closest(".hero-view-collection-btn") ||
+        e.target.closest(".hero-buttons") ||
+        e.target.closest(".floating-action-buttons") ||
+        e.target.closest(".hero-controls-row") ||
+        e.target.closest(".hero-slider-nav") ||
+        e.target.closest("#heroDots") ||
+        e.target.closest("#mainHeader") ||
+        e.target.closest("#floatingWhatsapp")
+      )) {
+        return;
+      }
+      if (e.preventDefault) e.preventDefault();
+    }
+    const currentCat = appState.categories[appState.currentHeroCategoryIndex] || appState.categories[0];
     if (currentCat) {
       const prod = getFeaturedProductForCategory(currentCat);
       if (prod) {
         openProductModal(prod, 0, [prod]);
+      } else {
+        openCategoryPage(currentCat);
       }
     }
   };
+
+  const heroSection = document.getElementById("home");
+  const heroBackdropImg = document.getElementById("heroBackdropImage");
+  const heroBackdropBox = document.getElementById("heroPhotoBackdrop");
+  const heroClickBadge = document.getElementById("heroClickableBadge");
+  const heroPill = document.getElementById("heroFeaturedPill");
+  const heroContent = document.querySelector(".hero-content");
+  const heroHeading = document.getElementById("heroHeading");
+  const heroDescription = document.getElementById("heroDescription");
+  const heroPrimaryBtn = document.getElementById("heroPrimaryBtn");
+  const heroSecondaryBtn = document.getElementById("heroSecondaryBtn");
+
+  if (heroPrimaryBtn) {
+    heroPrimaryBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  if (heroSecondaryBtn) {
+    heroSecondaryBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  // Make the entire hero section and all sub-elements fully clickable to open the featured luminaire details:
+  if (heroSection) {
+    heroSection.addEventListener("click", openHeroProductModal);
+  }
+
+  if (heroBackdropImg) {
+    heroBackdropImg.addEventListener("click", openHeroProductModal);
+  }
+
+  if (heroBackdropBox) {
+    heroBackdropBox.addEventListener("click", openHeroProductModal);
+    heroBackdropBox.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        openHeroProductModal(e);
+      }
+    });
+  }
+
+  if (heroContent) {
+    heroContent.addEventListener("click", openHeroProductModal);
+  }
+
+  if (heroHeading) {
+    heroHeading.addEventListener("click", openHeroProductModal);
+  }
+
+  if (heroDescription) {
+    heroDescription.addEventListener("click", openHeroProductModal);
+  }
+
+  if (heroClickBadge) {
+    heroClickBadge.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openHeroProductModal(e);
+    });
+    heroClickBadge.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.stopPropagation();
+        openHeroProductModal(e);
+      }
+    });
+  }
+
+  if (heroPill) {
+    heroPill.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const currentCat = appState.categories[appState.currentHeroCategoryIndex] || appState.categories[0];
+      if (currentCat) {
+        openCategoryPage(currentCat);
+      }
+    });
+  }
 
   if (heroCard) {
     heroCard.addEventListener("click", (e) => {
@@ -856,8 +1279,9 @@ function setupHeroCategorySlider() {
     });
   }
 
-  // Start auto timer
+  // Start auto timer & observer
   startHeroInterval();
+  initHeroVisibilityObserver();
 }
 
 /**
@@ -914,9 +1338,10 @@ function getFeaturedProductForCategory(category) {
 }
 
 function setHeroCategory(index) {
-  if (index < 0 || index >= appState.categories.length) return;
+  if (typeof index !== "number" || isNaN(index) || index < 0 || !appState.categories || index >= appState.categories.length) return;
   appState.currentHeroCategoryIndex = index;
   const currentCat = appState.categories[index];
+  if (!currentCat) return;
 
   // Update Hero Product Photo & Meta
   const featuredProduct = getFeaturedProductForCategory(currentCat);
@@ -925,18 +1350,46 @@ function setHeroCategory(index) {
   if (featuredProduct) {
     const src = featuredProduct.image_url || getSvgFallback(featuredProduct.name, featuredProduct.category);
 
-    // Update entire background hero photo
+    // Update entire background hero photo with clear, crisp transition
     if (heroBackdropImg) {
-      heroBackdropImg.style.opacity = "0";
+      heroBackdropImg.style.opacity = "0.85";
       setTimeout(() => {
         heroBackdropImg.src = src;
         heroBackdropImg.alt = `${currentCat.name} - PREKSHA LIGHTING WORLD`;
+        heroBackdropImg.title = `Click to view ${featuredProduct.name} (${currentCat.name})`;
         heroBackdropImg.onerror = function () {
           this.onerror = null;
           this.src = getSvgFallback(featuredProduct.name, featuredProduct.category);
         };
         heroBackdropImg.style.opacity = "1";
-      }, 150);
+      }, 80);
+    }
+
+    const heroBackdropBox = document.getElementById("heroPhotoBackdrop");
+    if (heroBackdropBox) {
+      heroBackdropBox.setAttribute("title", `Click to view ${featuredProduct.name} (${currentCat.name})`);
+      heroBackdropBox.setAttribute("aria-label", `Click to view ${featuredProduct.name} (${currentCat.name})`);
+    }
+
+    const heroCategoryBadge = document.getElementById("heroCategoryBadge");
+    if (heroCategoryBadge) {
+      heroCategoryBadge.textContent = currentCat.name;
+    }
+
+    // Update Category Name and Description below Hero Image
+    const heroCurrentCatName = document.getElementById("heroCurrentCategoryName");
+    if (heroCurrentCatName) {
+      heroCurrentCatName.textContent = currentCat.name;
+    }
+
+    const heroCurrentCatDesc = document.getElementById("heroCurrentCategoryDesc");
+    if (heroCurrentCatDesc) {
+      heroCurrentCatDesc.textContent = currentCat.description || "Architectural lighting fixture engineered for refined spaces.";
+    }
+
+    const heroClickableText = document.getElementById("heroClickableText");
+    if (heroClickableText) {
+      heroClickableText.textContent = `Click to View ${currentCat.name}`;
     }
 
     const heroImg = document.getElementById("heroProductImage");
@@ -991,6 +1444,19 @@ function setHeroCategory(index) {
     }
   });
 
+  // Update Category chips below hero image
+  const catChips = document.querySelectorAll(".hero-category-names-strip .hero-cat-chip");
+  catChips.forEach((chip, idx) => {
+    if (idx === index) {
+      chip.classList.add("active");
+      try {
+        chip.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      } catch (_) {}
+    } else {
+      chip.classList.remove("active");
+    }
+  });
+
   // Update Hero thumbnails
   const thumbs = document.querySelectorAll(".hero-thumbnails-strip .hero-thumb-btn");
   thumbs.forEach((thumb, idx) => {
@@ -1004,10 +1470,43 @@ function setHeroCategory(index) {
 
 function startHeroInterval() {
   clearInterval(appState.heroInterval);
+  if (!appState.categories || appState.categories.length === 0) return;
+
   appState.heroInterval = setInterval(() => {
-    let nextIndex = (appState.currentHeroCategoryIndex + 1) % appState.categories.length;
+    if (!appState.categories || appState.categories.length === 0) return;
+    const heroElem = document.getElementById("home");
+    if (heroElem) {
+      const rect = heroElem.getBoundingClientRect();
+      if (rect.bottom <= 40 || rect.top >= window.innerHeight) {
+        // Offscreen - pause transitions to keep scroll buttery smooth
+        return;
+      }
+    }
+    const curIdx = typeof appState.currentHeroCategoryIndex === "number" && !isNaN(appState.currentHeroCategoryIndex)
+      ? appState.currentHeroCategoryIndex
+      : 0;
+    let nextIndex = (curIdx + 1) % appState.categories.length;
     setHeroCategory(nextIndex);
-  }, 4500);
+  }, 5000);
+}
+
+function initHeroVisibilityObserver() {
+  if (isHeroObserverInitialized) return;
+  const heroElem = document.getElementById("home");
+  if (!heroElem || !("IntersectionObserver" in window)) return;
+  isHeroObserverInitialized = true;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startHeroInterval();
+      } else {
+        clearInterval(appState.heroInterval);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  observer.observe(heroElem);
 }
 
 function resetHeroInterval() {
@@ -1056,20 +1555,263 @@ function renderHomepageCategories() {
 }
 
 /**
- * Render Featured Products on Homepage
+ * Render Curated Showcase / Signature Products in a continuous single sliding line
  */
 function renderHomepageFeaturedProducts() {
   const grid = document.getElementById("homepageProductGrid");
+  const slider = document.getElementById("homepageProductSlider");
   if (!grid) return;
 
   grid.innerHTML = "";
-  // Display up to 8 products
-  const featured = appState.products.slice(0, 8);
 
-  featured.forEach((prod, idx) => {
-    const card = createProductCard(prod, idx, featured);
+  const productsToDisplay = appState.products && appState.products.length > 0 
+    ? appState.products 
+    : [];
+
+  if (productsToDisplay.length === 0) {
+    grid.innerHTML = `<p style="padding: 24px; color: var(--color-text-muted); text-align: center; width: 100%;">No products available currently.</p>`;
+    return;
+  }
+
+  // Ensure we have at least 6 distinct products in the base row so the track comfortably fills widescreen displays
+  let baseList = [...productsToDisplay];
+  while (baseList.length < 6) {
+    baseList = baseList.concat(productsToDisplay);
+  }
+
+  // Set A: Primary row
+  baseList.forEach((prod, idx) => {
+    const card = createProductCard(prod, idx, baseList);
+    card.setAttribute("data-set", "a");
     grid.appendChild(card);
   });
+
+  // Set B: Exact cloned row for seamless infinite wrap
+  baseList.forEach((prod, idx) => {
+    const card = createProductCard(prod, idx, baseList);
+    card.setAttribute("data-set", "b");
+    grid.appendChild(card);
+  });
+
+  // Initialize or re-calibrate the single-line continuous slider
+  setupShowcaseInfiniteSlider();
+}
+
+/**
+ * Controller for continuous single-line sliding with pause on hover/touch and arrow navigation
+ */
+const SHOWCASE_SPEED = 1.0; // silky smooth glide speed (~60px/sec)
+
+function slideTick(now) {
+  const isCollectionPageOpen = document.body.classList.contains("collection-open");
+  if (isCollectionPageOpen) {
+    showcaseAnimFrameId = null;
+    return; // Completely pause frame loop while category page is active
+  }
+
+  const slider = document.getElementById("homepageProductSlider");
+  const grid = document.getElementById("homepageProductGrid");
+  if (!slider || !grid) {
+    showcaseAnimFrameId = null;
+    return;
+  }
+
+  if (!showcaseLastTimestamp) showcaseLastTimestamp = now;
+  const delta = Math.min(now - showcaseLastTimestamp, 50);
+  showcaseLastTimestamp = now;
+
+  if (!showcaseHalfWidth || showcaseHalfWidth <= 50) {
+    showcaseHalfWidth = grid.scrollWidth / 2;
+  }
+
+  // Fast viewport check: if slider is in viewport, slide!
+  const rect = slider.getBoundingClientRect();
+  const inViewport = rect.bottom > 0 && rect.top < (window.innerHeight || document.documentElement.clientHeight);
+
+  if (
+    !isShowcaseManuallyPaused &&
+    !isShowcasePaused &&
+    !isShowcaseInteracting &&
+    inViewport &&
+    showcaseHalfWidth > 50
+  ) {
+    const step = SHOWCASE_SPEED * (delta / 16.666);
+    showcaseScrollPos += step;
+    if (showcaseScrollPos >= showcaseHalfWidth) {
+      showcaseScrollPos -= showcaseHalfWidth;
+    }
+    slider.scrollLeft = Math.round(showcaseScrollPos);
+  } else {
+    showcaseScrollPos = slider.scrollLeft;
+  }
+
+  showcaseAnimFrameId = requestAnimationFrame(slideTick);
+}
+
+function pauseShowcaseSlider() {
+  isShowcasePaused = true;
+  if (showcaseAnimFrameId) {
+    cancelAnimationFrame(showcaseAnimFrameId);
+    showcaseAnimFrameId = null;
+  }
+}
+
+function resetShowcaseSlider() {
+  isShowcaseInteracting = false;
+  isShowcasePaused = false;
+  isShowcaseVisible = true;
+  showcaseLastTimestamp = 0;
+  clearTimeout(showcaseResumeTimer);
+
+  const grid = document.getElementById("homepageProductGrid");
+  const slider = document.getElementById("homepageProductSlider");
+  if (!grid || !slider) return;
+
+  slider.style.scrollBehavior = "auto";
+
+  // Reliable half-width computation from track width
+  if (grid.scrollWidth > 100) {
+    showcaseHalfWidth = grid.scrollWidth / 2;
+  }
+  if (showcaseHalfWidth > 50 && slider.scrollLeft >= showcaseHalfWidth) {
+    slider.scrollLeft %= showcaseHalfWidth;
+  }
+  showcaseScrollPos = slider.scrollLeft;
+
+  if (showcaseAnimFrameId) {
+    cancelAnimationFrame(showcaseAnimFrameId);
+    showcaseAnimFrameId = null;
+  }
+  if (!document.body.classList.contains("collection-open")) {
+    showcaseAnimFrameId = requestAnimationFrame(slideTick);
+  }
+}
+
+function setupShowcaseInfiniteSlider() {
+  const slider = document.getElementById("homepageProductSlider");
+  const grid = document.getElementById("homepageProductGrid");
+  if (!slider || !grid) return;
+
+  slider.style.scrollBehavior = "auto";
+
+  // Calculate halfWidth
+  const computeHalfWidth = () => {
+    if (!grid) return;
+    showcaseHalfWidth = grid.scrollWidth / 2;
+  };
+
+  requestAnimationFrame(() => {
+    computeHalfWidth();
+    setTimeout(computeHalfWidth, 350);
+  });
+
+  if (!isShowcaseSliderInitialized) {
+    isShowcaseSliderInitialized = true;
+
+    window.addEventListener("resize", computeHalfWidth, { passive: true });
+
+    // 1. Pause on mouse hover (desktop)
+    slider.addEventListener("mouseenter", () => {
+      isShowcasePaused = true;
+    });
+    slider.addEventListener("mouseleave", () => {
+      isShowcasePaused = false;
+    });
+
+    // 2. Pause on touch interaction (mobile swipe)
+    slider.addEventListener("touchstart", () => {
+      isShowcaseInteracting = true;
+      clearTimeout(showcaseResumeTimer);
+    }, { passive: true });
+
+    const endTouchInteraction = () => {
+      clearTimeout(showcaseResumeTimer);
+      showcaseResumeTimer = setTimeout(() => {
+        isShowcaseInteracting = false;
+      }, 1500);
+    };
+
+    slider.addEventListener("touchend", endTouchInteraction, { passive: true });
+    slider.addEventListener("touchcancel", endTouchInteraction, { passive: true });
+
+    window.addEventListener("blur", () => {
+      isShowcaseInteracting = false;
+      isShowcasePaused = false;
+    });
+
+    // 3. User manual scroll handling: wrap seamlessly when user is dragging
+    slider.addEventListener("scroll", () => {
+      if (!isShowcaseInteracting || showcaseHalfWidth <= 50) return;
+      if (slider.scrollLeft >= showcaseHalfWidth * 1.85) {
+        slider.scrollLeft -= showcaseHalfWidth;
+      } else if (slider.scrollLeft <= 0) {
+        slider.scrollLeft += showcaseHalfWidth;
+      }
+    }, { passive: true });
+
+    // 4. Arrow navigation & pause/play controls
+    const prevBtn = document.getElementById("showcasePrevBtn");
+    const nextBtn = document.getElementById("showcaseNextBtn");
+    const pauseBtn = document.getElementById("showcasePauseBtn");
+    const pauseIcon = document.getElementById("showcasePauseIcon");
+    const playIcon = document.getElementById("showcasePlayIcon");
+
+    const getStepDistance = () => {
+      const firstCard = grid.querySelector(".product-card");
+      return firstCard ? firstCard.offsetWidth + 22 : 312;
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        isShowcaseInteracting = true;
+        if (slider.scrollLeft <= 20 && showcaseHalfWidth > 50) {
+          slider.scrollLeft += showcaseHalfWidth;
+        }
+        slider.scrollBy({ left: -getStepDistance(), behavior: "smooth" });
+        clearTimeout(showcaseResumeTimer);
+        showcaseResumeTimer = setTimeout(() => {
+          isShowcaseInteracting = false;
+        }, 2200);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        isShowcaseInteracting = true;
+        slider.scrollBy({ left: getStepDistance(), behavior: "smooth" });
+        clearTimeout(showcaseResumeTimer);
+        showcaseResumeTimer = setTimeout(() => {
+          isShowcaseInteracting = false;
+        }, 2200);
+      });
+    }
+
+    if (pauseBtn) {
+      pauseBtn.addEventListener("click", () => {
+        isShowcaseManuallyPaused = !isShowcaseManuallyPaused;
+        if (pauseIcon && playIcon) {
+          pauseIcon.style.display = isShowcaseManuallyPaused ? "none" : "block";
+          playIcon.style.display = isShowcaseManuallyPaused ? "block" : "none";
+        }
+        pauseBtn.setAttribute("aria-label", isShowcaseManuallyPaused ? "Resume Auto-Slide" : "Pause Auto-Slide");
+      });
+    }
+
+    // 5. IntersectionObserver: Pause sliding when section is not in viewport
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          isShowcaseVisible = entry.isIntersecting;
+        });
+      }, { threshold: 0.05 });
+      observer.observe(slider);
+    }
+  }
+
+  // Ensure tick is running if not open
+  if (!showcaseAnimFrameId && !document.body.classList.contains("collection-open")) {
+    showcaseAnimFrameId = requestAnimationFrame(slideTick);
+  }
 }
 
 /**
@@ -1130,32 +1872,32 @@ function createProductCard(prod, index, listContext) {
 /**
  * CRITICAL REQUIREMENT: SEPARATE CATEGORY VIEW & HERO VIDEO LIFECYCLE
  */
-function openCategoryPage(category) {
+function openCategoryPage(category, updateUrl = true) {
+  if (!category) return;
   appState.activeCategory = category;
+  appState.savedScrollY = window.scrollY || window.pageYOffset || 0;
 
-  // 1. Hero Video Handling
+  // 1. Pause background animations to keep CPU/GPU 100% idle and responsive
+  clearInterval(appState.heroInterval);
+  pauseShowcaseSlider();
+
+  // 2. Hero Video Handling (if present)
   const heroVideo = document.getElementById("heroVideo");
   if (heroVideo) {
-    // Preserve src
     const currentSrc = heroVideo.getAttribute("src") || heroVideo.currentSrc;
     if (currentSrc && !appState.savedHeroVideoSrc) {
       appState.savedHeroVideoSrc = currentSrc;
     }
-    // Pause, remove src, and call load() to completely unload
     try {
       heroVideo.pause();
       heroVideo.removeAttribute("src");
       heroVideo.load();
-    } catch (err) {
-      console.warn("Video unload error:", err);
-    }
+    } catch (err) {}
   }
 
-  // 2. Pause hero category slider
-  clearInterval(appState.heroInterval);
-
-  // 3. Close any open dropdowns
+  // 3. Close any open dropdowns and modals
   closeAllDropdowns();
+  closeProductModal();
 
   // 4. Update Category View Content
   const catTitle = document.getElementById("selectedCategoryTitle");
@@ -1184,7 +1926,6 @@ function openCategoryPage(category) {
       const pSlugLower = (p.category_slug || "").toLowerCase().trim();
       if (pCatLower === catNameLower || pCatLower === catSlugLower) return true;
       if (pSlugLower === catSlugLower || pSlugLower === catNameLower) return true;
-      // Partial matching
       if (catNameLower && pCatLower.includes(catNameLower)) return true;
       return false;
     });
@@ -1232,8 +1973,17 @@ function openCategoryPage(category) {
     });
   }
 
-  // 6. Add body class and display collection page
+  // 6. Push history state so browser Back button / mobile swipe closes category page safely
+  const catSlug = category.slug || category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  if (updateUrl && window.location.hash !== `#category-${catSlug}`) {
+    try {
+      history.pushState({ categoryPageOpen: true, slug: catSlug }, "", "#category-" + catSlug);
+    } catch (e) {}
+  }
+
+  // 7. Lock body and display collection page
   document.body.classList.add("collection-open");
+  document.body.style.overflow = "hidden";
   const collectionPage = document.getElementById("collectionPage");
   if (collectionPage) {
     collectionPage.style.display = "block";
@@ -1242,48 +1992,130 @@ function openCategoryPage(category) {
 }
 
 /**
- * Close Category Page and Restore Homepage
+ * Close Category Page and Restore Homepage cleanly without any freezing or scroll fighting
+ * @param {'previous' | 'home' | 'products' | 'none'} returnTarget
+ * @param {boolean} updateHistory
  */
-function closeCategoryPage() {
+function closeCategoryPage(returnTarget = "previous", updateHistory = true) {
   const collectionPage = document.getElementById("collectionPage");
   if (collectionPage) {
+    collectionPage.scrollTop = 0;
     collectionPage.style.display = "none";
   }
 
+  // 1. Immediately remove collection-open and restore body overflow
   document.body.classList.remove("collection-open");
+  document.body.style.overflow = "";
+  document.documentElement.style.overflow = "";
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.height = "";
+  appState.activeCategory = null;
 
-  // Restore Hero Video
+  // 2. Clean URL hash if it was a category hash
+  if (updateHistory && window.location.hash.startsWith("#category-")) {
+    try {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    } catch (e) {}
+  }
+
+  // 3. Restore Hero Video if present
   const heroVideo = document.getElementById("heroVideo");
   if (heroVideo && appState.savedHeroVideoSrc) {
     try {
       heroVideo.src = appState.savedHeroVideoSrc;
       heroVideo.load();
-      heroVideo.play().catch(() => {
-        // Autoplay may need user interaction on some browsers
-      });
-    } catch (err) {
-      console.warn("Video restore error:", err);
-    }
+      heroVideo.play().catch(() => {});
+    } catch (err) {}
   }
 
-  // Restart hero category slider
+  // 4. Instant scroll positioning without locking touch/scroll interactions
+  const prevBehavior = document.documentElement.style.scrollBehavior;
+  document.documentElement.style.scrollBehavior = "auto";
+
+  let targetScrollY = 0;
+  if (returnTarget === "home") {
+    targetScrollY = 0;
+  } else if (returnTarget === "products") {
+    if (typeof appState.savedScrollY === "number" && appState.savedScrollY > 100) {
+      targetScrollY = appState.savedScrollY;
+    } else {
+      const productsSection = document.getElementById("products");
+      targetScrollY = productsSection ? Math.max(0, productsSection.offsetTop - 70) : 0;
+    }
+  } else if (returnTarget === "previous") {
+    targetScrollY = typeof appState.savedScrollY === "number" ? appState.savedScrollY : 0;
+  } else if (returnTarget === "none") {
+    targetScrollY = null;
+  }
+
+  if (targetScrollY !== null) {
+    window.scrollTo({ top: targetScrollY, left: 0, behavior: "instant" });
+  }
+
+  requestAnimationFrame(() => {
+    document.documentElement.style.scrollBehavior = prevBehavior;
+  });
+
+  // 5. Restart hero category slider
   startHeroInterval();
+
+  // 6. Reset and resume showcase slider
+  resetShowcaseSlider();
 }
 
-// Hook "Back to Products" button
-document.addEventListener("DOMContentLoaded", () => {
+/**
+ * Handle URL hash changes (Browser Back / Forward / Hash Clicks)
+ */
+function handleUrlHashChange() {
+  const hash = window.location.hash || "";
+  const isPageOpen = document.body.classList.contains("collection-open");
+
+  if (hash.startsWith("#category-")) {
+    const slug = hash.replace("#category-", "").trim().toLowerCase();
+    if (slug) {
+      const targetCat = appState.categories.find(c => 
+        (c.slug && c.slug.toLowerCase() === slug) ||
+        (c.name && c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") === slug)
+      );
+      if (targetCat) {
+        openCategoryPage(targetCat, false);
+      }
+    }
+  } else if (isPageOpen) {
+    const returnTarget = hash === "#home" ? "home" : (hash === "#products" ? "products" : "previous");
+    closeCategoryPage(returnTarget, false);
+  }
+}
+
+/**
+ * Initialize all Category Navigation and Browser History Handlers
+ */
+function initCategoryNavigation() {
+  if (isCategoryNavInitialized) return;
+  isCategoryNavInitialized = true;
+
   const backBtn = document.getElementById("categoryBackBtn");
   if (backBtn) {
     backBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      closeCategoryPage();
-      const productsSection = document.getElementById("products");
-      if (productsSection) {
-        productsSection.scrollIntoView({ behavior: "smooth" });
-      }
+      closeCategoryPage("products", true);
     });
   }
-});
+
+  // Category Header Logo click returns home
+  const catLogoLink = document.getElementById("categoryHeaderLogoLink") || document.querySelector("#categoryHeader .header-logo");
+  if (catLogoLink) {
+    catLogoLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeCategoryPage("home", true);
+    });
+  }
+
+  // Browser Back Button & Hash Change handling
+  window.addEventListener("popstate", handleUrlHashChange);
+  window.addEventListener("hashchange", handleUrlHashChange);
+}
 
 /**
  * PRODUCT IMAGE VIEWER / MODAL LOGIC
@@ -1516,34 +2348,15 @@ function initBrandLogo() {
   );
   if (!logoElements || logoElements.length === 0) return;
 
-  const candidateSources = [
-    "images/preksha-lite-logo.svg",
-    "images/preksha-lite-logo.png",
-    "images/preksha-lite-logo.jpeg",
-    "images/preksha-lite-logo.jpg",
-    "images/preksha-lite-logo.webp",
-    "images/logo.png",
-    "images/logo.jpeg",
-    "images/logo.jpg"
-  ];
-
-  function tryNext(imgElem, index) {
-    if (index >= candidateSources.length) return;
-    const nextSrc = candidateSources[index];
-    const testImg = new Image();
-    testImg.onload = function () {
-      imgElem.src = nextSrc;
-    };
-    testImg.onerror = function () {
-      tryNext(imgElem, index + 1);
-    };
-    testImg.src = nextSrc;
-  }
-
   logoElements.forEach((img) => {
     ensureLogoWebsiteMatching(img);
     img.addEventListener("error", function () {
-      tryNext(img, 0);
+      if (this.dataset.fallbackApplied) return;
+      this.dataset.fallbackApplied = 'true';
+      this.src = "images/preksha-lite-logo.png";
+      this.onerror = function() {
+        this.src = PREKSHA_LOGO_FALLBACK;
+      };
     }, { once: true });
   });
 }
@@ -2386,4 +3199,11 @@ function initAdminPanel() {
     if (!adminAlertBanner) return;
     adminAlertBanner.style.display = "none";
   }
+}
+
+// Start application when DOM is fully ready and all module definitions are parsed
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initStorefrontApp);
+} else {
+  initStorefrontApp();
 }

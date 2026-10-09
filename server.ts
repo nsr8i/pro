@@ -35,6 +35,12 @@ async function startServer() {
     app.get(['/admin', '/admin/', '/admin.html'], (_req, res) => {
       res.sendFile(path.join(distPath, 'admin.html'));
     });
+    app.get(['/download', '/download/', '/download.html'], (_req, res) => {
+      res.sendFile(path.join(distPath, 'download.html'));
+    });
+    app.get(['/app', '/app/', '/app.html', '/install', '/install/'], (_req, res) => {
+      res.sendFile(path.join(distPath, 'app.html'));
+    });
 
     app.use(express.static(distPath));
 
