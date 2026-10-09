@@ -87,16 +87,22 @@
        HERO SECTION (LUMINOUS FULL HERO PHOTO SHOWCASE)
        ========================================================= -->
   <section id="home" class="hero" aria-label="Featured Luminaire Showcase">
-    <!-- Hero Text (Appears above hero image without blurring the picture view) -->
+    <!-- Ambient Full Hero Background Image (Appears fully across hero section behind hero text) -->
+    <div class="hero-bg-canvas" aria-hidden="true">
+      <img id="heroCanvasBgImage" class="hero-canvas-bg-img" src="https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790263311166-px9bao7.jpeg" alt="" loading="eager" onerror="this.onerror=null; this.src='https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1789626815368-hcknfkiz9hp.jpeg';">
+      <div class="hero-bg-overlay"></div>
+    </div>
+
+    <!-- Hero Text (Appears on the left side above hero backdrop) -->
     <div class="hero-text-container" id="heroTextContainer">
       <div class="hero-eyebrow-badge">PREKSHA LIGHTING WORLD</div>
       <h1 class="hero-heading" id="heroHeading">Light Your Space With Style</h1>
       <p class="hero-description" id="heroDescription">Premium decorative and architectural lighting solutions for homes, shops, offices and modern spaces.</p>
     </div>
 
-    <!-- Hero Photo Stage - Fits total hero area edge-to-edge, crystal-clear with zero blur or card frame -->
+    <!-- Hero Photo Stage - Appears on the right side as a prominent luxury showcase card -->
     <div class="hero-photo-stage" id="heroPhotoStage">
-      <!-- Foreground crisp, fully visible luminaire photo covering the whole hero area -->
+      <!-- Foreground crisp luminaire photo fitting completely in the card edge-to-edge -->
       <div class="hero-photo-wrapper" id="heroPhotoBackdrop" role="button" tabindex="0" title="Click to view featured luminaire details" aria-label="Click to view featured luminaire details">
         <img id="heroBackdropImage" class="hero-backdrop-img" src="https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790263311166-px9bao7.jpeg" alt="Hero Featured Luminaire - PREKSHA LIGHTING WORLD" loading="eager" onerror="this.onerror=null; this.src='https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1789626815368-hcknfkiz9hp.jpeg';">
       </div>
@@ -368,7 +374,6 @@
         <li><a href="#why-us">Why Us</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="/app" style="color:#db5200; font-weight:600;">📲 Mobile App</a></li>
-        <li><a href="/download" style="color:#38bdf8; font-weight:600;">🔌 USB & PC Install</a></li>
       </ul>
 
       <p id="footerCopyright" class="footer-copyright">

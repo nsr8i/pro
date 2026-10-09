@@ -355,6 +355,56 @@ img {
   box-sizing: border-box;
   scroll-margin-top: 96px;
   background: transparent;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+/* Ambient Canvas: Hero Image fully visible across entire hero section behind hero text - Pristine, Clean & Crystal-Clear */
+.hero-bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.hero-canvas-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.35;
+  filter: none !important;
+  -webkit-filter: none !important;
+  transform: none !important;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  transition: opacity 0.4s ease;
+}
+
+/* Pristine, clean overlay with NO BLUR - keeps text completely readable while keeping hero image clean and visible */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(255, 255, 255, 0.72) 36%,
+    rgba(255, 255, 255, 0.22) 65%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  pointer-events: none;
 }
 
 /* Hero Text Container - Appears prominently on the LEFT SIDE */
@@ -402,6 +452,7 @@ img {
   text-align: left;
   cursor: pointer;
   transition: color 0.25s ease;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
 }
 
 .hero-heading:hover {
@@ -410,82 +461,91 @@ img {
 
 .hero-description {
   font-size: clamp(1.02rem, 1.4vw, 1.18rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.65;
-  color: var(--color-text-muted); /* #6e675b matching website subtitles */
+  color: #3b3731; /* Crisp rich tone matching website subtitles */
   margin: 0 0 20px 0;
   max-width: 540px;
   text-wrap: pretty;
   text-align: left;
   cursor: pointer;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
-/* Hero Photo Stage - Appears prominently on the RIGHT SIDE */
+/* Hero Photo Stage - Distinct Luxury Luminaire Showcase Card on the RIGHT SIDE */
 .hero-photo-stage {
   flex: 1 1 52%;
   position: relative;
   width: 100%;
-  max-width: 680px;
-  height: clamp(420px, 62vh, 600px);
+  max-width: 640px;
+  height: clamp(420px, 60vh, 580px);
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0c0e12;
-  border: 1px solid rgba(214, 170, 69, 0.35);
+  background: #0d0f14;
+  border: 1.5px solid rgba(214, 170, 69, 0.45);
   border-radius: 24px;
-  box-shadow: 0 18px 48px rgba(8, 8, 8, 0.16);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   padding: 0 !important;
   box-sizing: border-box;
   cursor: pointer;
-  overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden !important;
+  z-index: 4;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-photo-stage:hover {
-  border-color: rgba(214, 170, 69, 0.65);
-  box-shadow: 0 24px 58px rgba(8, 8, 8, 0.22);
+  border-color: rgba(214, 170, 69, 0.75);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
 }
 
-/* Full crisp display of luminaire photo - 100% visible, fully shown from top to bottom */
+/* Photo wrapper fitting 100% of the card edge-to-edge */
 .hero-photo-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 16px !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
   box-sizing: border-box;
   pointer-events: auto;
   cursor: pointer;
   border-radius: inherit;
   overflow: hidden;
+  z-index: 1;
 }
 
+/* Hero image fitting perfectly in the card with crisp clarity */
 .hero-backdrop-img {
   display: block !important;
-  width: auto !important;
-  height: auto !important;
+  width: 100% !important;
+  height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center center !important;
-  margin: 0 auto !important;
-  border-radius: 14px !important;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: inherit !important;
   filter: none !important;
   -webkit-filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: high-quality !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   opacity: 1 !important;
-  transform: scale(1);
+  transform: none !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
   pointer-events: auto;
   cursor: pointer;
 }
 
 .hero-photo-stage:hover .hero-backdrop-img {
-  transform: scale(1.02);
+  transform: scale(1.03) !important;
 }
 
 /* Completely remove any box or overlay between hero text and hero image */
@@ -494,7 +554,7 @@ img {
   display: none !important;
 }
 
-/* Subtle floating switcher dots overlaid at the bottom of hero photo stage */
+/* Subtle floating switcher dots overlaid at the bottom of hero photo stage - Clean, crisp, dark luxury */
 .hero-slider-overlay-nav {
   position: absolute;
   bottom: 20px;
@@ -504,13 +564,13 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(6, 8, 12, 0.85);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   padding: 7px 18px;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(214, 170, 69, 0.38);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   pointer-events: auto;
 }
 
@@ -574,6 +634,19 @@ img {
     padding: 12px 20px 28px;
     margin-top: 0;
   }
+  .hero-bg-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(255, 255, 255, 0.68) 45%,
+      rgba(255, 255, 255, 0.18) 75%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    filter: none !important;
+    -webkit-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
   .hero-text-container {
     flex: 1 1 100%;
     max-width: 100%;
@@ -597,16 +670,37 @@ img {
   }
   .hero-photo-stage {
     flex: 1 1 100%;
-    max-width: min(94vw, 680px);
-    height: clamp(340px, 58vh, 480px);
-    border-radius: 20px;
+    width: 100% !important;
+    max-width: min(92vw, 600px) !important;
+    height: clamp(340px, 54vh, 460px) !important;
+    border-radius: 20px !important;
+    border: 1.5px solid rgba(214, 170, 69, 0.45) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35) !important;
+    background: #0d0f14 !important;
+    overflow: hidden !important;
     padding: 0 !important;
-  }
-  .hero-backdrop-img {
-    max-height: clamp(310px, 54vh, 450px) !important;
+    margin: 0 auto !important;
   }
   .hero-photo-wrapper {
-    padding: 12px !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: inherit !important;
+    overflow: hidden !important;
+  }
+  .hero-backdrop-img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: inherit !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 
@@ -640,16 +734,37 @@ img {
     align-self: center;
   }
   .hero-photo-stage {
-    max-width: min(94vw, 560px);
-    height: clamp(300px, 54vh, 440px);
-    border-radius: 16px;
+    width: 100% !important;
+    max-width: min(92vw, 520px) !important;
+    height: clamp(300px, 50vh, 420px) !important;
+    border-radius: 18px !important;
+    border: 1.5px solid rgba(214, 170, 69, 0.45) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35) !important;
+    background: #0d0f14 !important;
+    overflow: hidden !important;
     padding: 0 !important;
-  }
-  .hero-backdrop-img {
-    max-height: clamp(280px, 50vh, 400px) !important;
+    margin: 0 auto !important;
   }
   .hero-photo-wrapper {
-    padding: 10px !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: inherit !important;
+    overflow: hidden !important;
+  }
+  .hero-backdrop-img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: inherit !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   .hero-slider-overlay-nav {
     bottom: 12px;
@@ -672,16 +787,37 @@ img {
     font-size: 0.88rem;
   }
   .hero-photo-stage {
-    max-width: 95vw;
-    height: clamp(260px, 50vh, 380px);
-    border-radius: 14px;
+    width: 100% !important;
+    max-width: calc(100vw - 24px) !important;
+    height: clamp(260px, 46vh, 360px) !important;
+    border-radius: 16px !important;
+    border: 1.5px solid rgba(214, 170, 69, 0.45) !important;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35) !important;
+    background: #0d0f14 !important;
+    overflow: hidden !important;
     padding: 0 !important;
-  }
-  .hero-backdrop-img {
-    max-height: clamp(240px, 46vh, 340px) !important;
+    margin: 0 auto !important;
   }
   .hero-photo-wrapper {
-    padding: 8px !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: inherit !important;
+    overflow: hidden !important;
+  }
+  .hero-backdrop-img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: inherit !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 
@@ -2185,16 +2321,18 @@ body.collection-open #floatingActionButtons {
   }
 
   .hero-backdrop-img {
-    width: auto !important;
-    height: auto !important;
-    max-width: 95vw !important;
-    max-height: clamp(260px, 54vh, 420px) !important;
-    object-fit: contain !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
     object-position: center center !important;
+    border-radius: inherit !important;
     opacity: 1 !important;
     filter: none !important;
     -webkit-filter: none !important;
-    image-rendering: auto;
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: high-quality !important;
     transition: opacity 0.3s ease !important;
   }
 

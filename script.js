@@ -116,7 +116,7 @@ const FALLBACK_CATEGORIES = [
   { id: "c0000000-0000-4000-a000-000000000001", name: "Gate Lights", slug: "gate-lights", description: "Pillar and entrance lanterns.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1790263311166-px9bao7.jpeg", sort_order: 1 },
   { id: "c0000000-0000-4000-a000-000000000002", name: "Elevation Lights", slug: "elevation-lights", description: "Facade and exterior wall accent fixtures.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/products/1789626815368-hcknfkiz9hp.jpeg", sort_order: 2 },
   { id: "04a19717-6f03-411e-ba7b-2cd86025a2fa", name: "LED HANGING LIGHTS", slug: "led-hanging-lights", description: "Exclusive LED HANGING LIGHTS curated collection.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790599134687-gbc89th.jpeg", sort_order: 3 },
-  { id: "c0000000-0000-4000-a000-000000000003", name: "Hanging Lights", slug: "hanging-lights", description: "Modern pendant luminaires for dining & islands.", image_url: "images/wood hanging light.jpeg", sort_order: 4 },
+  { id: "c0000000-0000-4000-a000-000000000003", name: "Hanging Lights", slug: "hanging-lights", description: "Modern pendant luminaires for dining & islands.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790599134687-gbc89th.jpeg", sort_order: 4 },
   { id: "c0000000-0000-4000-a000-000000000004", name: "Chandeliers", slug: "chandeliers", description: "Grand luxury statement pieces.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790352253265-oakt23z.jpeg", sort_order: 5 },
   { id: "cc5e088a-68f2-4056-b822-8f04e0d26e75", name: "LED WALL LIGHTS", slug: "led-wall-lights", description: "Beautiful wall Lights and sconces.", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790339256880-omlmrn7.jpeg", sort_order: 6 },
   { id: "72bbb504-fb4e-4a5c-a14e-057607e0d5f5", name: "SINGLE HANGING LIGHTS", slug: "single-hanging-lights", description: "SINGLE BULB MODEL HANGING LIGHTS", image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790599252753-rxienbx.jpeg", sort_order: 7 }
@@ -251,7 +251,7 @@ const FALLBACK_PRODUCTS = [
     category_slug: "hanging-lights",
     description: "Warm wooden accent hanging luminaire for dining tables and islands.",
     price: "₹ 2,400",
-    image_url: "images/wood hanging light.jpeg",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790599134687-gbc89th.jpeg",
     sort_order: 13
   },
   {
@@ -261,7 +261,7 @@ const FALLBACK_PRODUCTS = [
     category_slug: "chandeliers",
     description: "Grand gold crystal chandelier for high ceiling living halls.",
     price: "₹ 14,500",
-    image_url: "images/chandelier gold.jpeg",
+    image_url: "https://pomjpixlffoibewaflfv.supabase.co/storage/v1/object/public/website-images/categories/1790352253265-oakt23z.jpeg",
     sort_order: 14
   }
 ];
@@ -1350,6 +1350,16 @@ function setHeroCategory(index) {
   if (featuredProduct) {
     const src = featuredProduct.image_url || getSvgFallback(featuredProduct.name, featuredProduct.category);
 
+    // Update entire background hero canvas photo behind hero text - Crisp and clean
+    const heroCanvasBg = document.getElementById("heroCanvasBgImage");
+    if (heroCanvasBg) {
+      heroCanvasBg.style.opacity = "0.2";
+      setTimeout(() => {
+        heroCanvasBg.src = src;
+        heroCanvasBg.style.opacity = "0.35";
+      }, 60);
+    }
+
     // Update entire background hero photo with clear, crisp transition
     if (heroBackdropImg) {
       heroBackdropImg.style.opacity = "0.85";
@@ -1374,6 +1384,11 @@ function setHeroCategory(index) {
     const heroCategoryBadge = document.getElementById("heroCategoryBadge");
     if (heroCategoryBadge) {
       heroCategoryBadge.textContent = currentCat.name;
+    }
+
+    const heroCardCategoryHint = document.getElementById("heroCardCategoryHint");
+    if (heroCardCategoryHint) {
+      heroCardCategoryHint.textContent = currentCat.name;
     }
 
     // Update Category Name and Description below Hero Image
