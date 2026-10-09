@@ -1,0 +1,8 @@
+{
+  "name": "PREKSHA LITE",
+  "description": "PREKSHA LIGHTING WORLD - Premium LED lighting solutions for homes, offices, shops and industries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
