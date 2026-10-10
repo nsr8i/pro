@@ -20,11 +20,16 @@ async function startServer() {
       appType: 'spa',
     });
 
-    // Admin rewrite middleware in dev
+    // Route rewrites in dev
     app.use((req, res, next) => {
       const url = req.url.split('?')[0];
+      const query = req.url.includes('?') ? '?' + req.url.split('?')[1] : '';
       if (url === '/admin' || url === '/admin/') {
-        req.url = '/admin.html' + (req.url.includes('?') ? '?' + req.url.split('?')[1] : '');
+        req.url = '/admin.html' + query;
+      } else if (url === '/download' || url === '/download/') {
+        req.url = '/download.html' + query;
+      } else if (url === '/app' || url === '/app/' || url === '/install' || url === '/install/') {
+        req.url = '/app.html' + query;
       }
       next();
     });
